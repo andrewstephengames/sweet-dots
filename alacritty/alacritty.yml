@@ -174,64 +174,94 @@ font:
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
-colors:
-  primary:
-    # hard contrast background - '#1d2021'
-    background:        &gruvbox_dark_bg '#282828'
-    # soft contrast background - '#32302f'
-    foreground:        '#ebdbb2'
-    bright_foreground: '#fbf1c7'
-    dim_foreground:    '#a89984'
-  cursor:
-    text:   CellBackground
-    cursor: CellForeground
-  vi_mode_cursor:
-    text:   CellBackground
-    cursor: CellForeground
-  # search:
-  #   matches:
-  #     foreground: '#000000'
-  #     background: '#ffffff'
-  #   focused_match:
-  #    foreground: CellBackground
-  #    background: CellForeground
-  #   bar:
-  #     background: ''
-  #     foreground: ''
-  # line_indicator:
-  #   foreground: None
-  #   background: None
-  selection:
-    text:       CellBackground
-    background: CellForeground
-  bright:
-    black:   '#928374'
-    red:     '#fb4934'
-    green:   '#b8bb26'
-    yellow:  '#fabd2f'
-    blue:    '#83a598'
-    magenta: '#d3869b'
-    cyan:    '#8ec07c'
-    white:   '#ebdbb2'
-  normal:
-    black:   *gruvbox_dark_bg
-    red:     '#cc241d'
-    green:   '#98971a'
-    yellow:  '#d79921'
-    blue:    '#458588'
-    magenta: '#b16286'
-    cyan:    '#689d6a'
-    white:   '#a89984'
-  dim:
-    black:   '#32302f'
-    red:     '#9d0006'
-    green:   '#79740e'
-    yellow:  '#b57614'
-    blue:    '#076678'
-    magenta: '#8f3f71'
-    cyan:    '#427b58'
-    white:   '#928374'
+# Gruvbox
+#colors:
+#  primary:
+#    # hard contrast background - '#1d2021'
+#    background:        &gruvbox_dark_bg '#282828'
+#    # soft contrast background - '#32302f'
+#    foreground:        '#ebdbb2'
+#    bright_foreground: '#fbf1c7'
+#    dim_foreground:    '#a89984'
+#  cursor:
+#    text:   CellBackground
+#    cursor: CellForeground
+#  vi_mode_cursor:
+#    text:   CellBackground
+#    cursor: CellForeground
+#  # search:
+#  #   matches:
+#  #     foreground: '#000000'
+#  #     background: '#ffffff'
+#  #   focused_match:
+#  #    foreground: CellBackground
+#  #    background: CellForeground
+#  #   bar:
+#  #     background: ''
+#  #     foreground: ''
+#  # line_indicator:
+#  #   foreground: None
+#  #   background: None
+#  selection:
+#    text:       CellBackground
+#    background: CellForeground
+#  bright:
+#    black:   '#928374'
+#    red:     '#fb4934'
+#    green:   '#b8bb26'
+#    yellow:  '#fabd2f'
+#    blue:    '#83a598'
+#    magenta: '#d3869b'
+#    cyan:    '#8ec07c'
+#    white:   '#ebdbb2'
+#  normal:
+#    black:   *gruvbox_dark_bg
+#    red:     '#cc241d'
+#    green:   '#98971a'
+#    yellow:  '#d79921'
+#    blue:    '#458588'
+#    magenta: '#b16286'
+#    cyan:    '#689d6a'
+#    white:   '#a89984'
+#  dim:
+#    black:   '#32302f'
+#    red:     '#9d0006'
+#    green:   '#79740e'
+#    yellow:  '#b57614'
+#    blue:    '#076678'
+#    magenta: '#8f3f71'
+#    cyan:    '#427b58'
+#    white:   '#928374'
   # indexed_colors: []
+
+# Kitty color scheme
+colors:
+  # Default colors
+  primary:
+    background: '#000000'
+    foreground: '#ffffff'
+
+  # Normal colors
+  normal:
+    black:   '#000000'
+    red:     '#cc0403'
+    green:   '#19cb00'
+    yellow:  '#cecb00'
+    blue:    '#0d73cc'
+    magenta: '#cb1ed1'
+    cyan:    '#0dcdcd'
+    white:   '#dddddd'
+
+  # Bright colors
+  bright:
+    black:   '#767676'
+    red:     '#f2201f'
+    green:   '#23fd00'
+    yellow:  '#fffd00'
+    blue:    '#1a8fff'
+    magenta: '#fd28ff'
+    cyan:    '#14ffff'
+    white:   '#ffffff'
 
 # Bell
 #
@@ -278,7 +308,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 1.0
+background_opacity: 0.8
 
 #selection:
   # This string contains all characters that are used as separators for

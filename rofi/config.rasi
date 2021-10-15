@@ -147,6 +147,8 @@ configuration {
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
 //@import "andrew-gruvbox-rofi.rasi"
-@import "gruvbox-dmenu.rasi"
+//@import "gruvbox-dmenu.rasi"
 //@theme "/usr/share/rofi/themes/andrew-gruvbox-rofi.rasi"
-@theme "gruvbox-dmenu.rasi"
+//@theme "gruvbox-dmenu.rasi"
+@import "sweet-dmenu.rasi"
+@theme "sweet-dmenu.rasi"

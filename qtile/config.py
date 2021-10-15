@@ -106,7 +106,7 @@ keys = [
         desc="Launch host filesystem with a keybinding"),
     Key([mod], "w", lazy.spawn("firefox"),
         desc="Launch Firefox"),
-    Key([mod], "f", lazy.spawn("pcmanfm"),
+    Key([mod], "f", lazy.spawn("pcmanfm-qt"),
         desc="Launch PCManFM"),
     Key([mod], "m", lazy.spawn("scripts/shell/mcpe"),
         desc="Launch MCPE"),
@@ -131,12 +131,12 @@ keys = [
 group_names = [("", {'layout': 'max'}),
                ("", {'layout': 'columns', 'matches':[Match(wm_class=["spacefm"])]}),
                ("", {'layout': 'max'}),
-               ("", {'layout': 'tile', 'matches':[Match(wm_class=["deadbeef"])]}),
-               ("", {'layout': 'columns', 'matches':[Match(wm_class=["fsearch"])]}),
+               ("", {'layout': 'tile', 'matches':[Match(wm_class=["deadbeef"])]}),
+               ("", {'layout': 'columns', 'matches':[Match(wm_class=["fsearch"])]}),
                ("", {'layout': 'max', 'matches':[Match(wm_class=["multimc", "Minecraft Linux Launcher UI"])]}),
-               ("", {'layout': 'columns'}),
-               ("", {'layout': 'columns'}),
-               ("", {'layout': 'columns'})]
+               ("", {'layout': 'columns'}),
+               ("", {'layout': 'columns'}),
+               ("", {'layout': 'columns'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
@@ -147,14 +147,14 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 layout_theme = {
                 "border_width": 1,
                 "margin": 8,
-                "border_focus": "#ebdbb2",
+                "border_focus": "#1688F0",
                 "border_normal": "#1D2330"
                 }
 floating_theme = {
-                "border_width": 0,
+                "border_width": 1,
                 "margin": 8,
-#                "border_focus": "#ebdbb2",
-#                "border_normal": "#1D2330"
+                "border_focus": "#1688F0",
+                "border_normal": "#1D2330"
                 }
 
 layouts = [
@@ -179,8 +179,8 @@ widget_defaults = dict(
     icon_size=20,
     fontsize=18,
     padding=3,
-    background="#272727",
-    foreground="#ebdbb2",
+    background="#000000",
+    foreground="#ffffff",
 )
 extension_defaults = widget_defaults.copy()
 
@@ -192,19 +192,19 @@ screens = [
                     length=10
                 ),
                 widget.LaunchBar(progs=[('', 'rofi -show drun', 'Launch Rofi')],
-                    default_icon='/home/andrew/.config/qtile/icons/archlinux-gruvbox-green.png',
+                    default_icon='/home/andrew/.config/qtile/icons/arch-sweet-neon.png',
                     padding=0,
                 ),
                 widget.GroupBox(
-                    font='FontAwesome 5 Free Solid',
+                    font='FontAwesome 5 Free Regular',
                     fontsize=18,
                     disable_drag=True,
-                    highlight_method='block',
-                    block_highlight_text_color='#272727',
-                    this_current_screen_border='#b8ba25',
-                    urgent_border='#272727',
-                    active='#b8ba25',
-                    inactive='#b8ba25',
+                    highlight_method='border',
+#                    block_highlight_text_color='#000000',
+                    this_current_screen_border='#0dcdcd',
+                    urgent_border='#000000',
+                    active='#ffffff',
+                    inactive='#ffffff',
                 ),
                 widget.CurrentLayoutIcon(
                     custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
@@ -216,29 +216,29 @@ screens = [
 #                    max_chars=32,
 #                ),
                 widget.Image(
-                    filename='~/.config/qtile/icons/previous-button.png',
+                    filename='~/.config/qtile/icons/neon-previous-button.png',
                     mouse_callbacks={
                                         'Button1': lambda: qtile.cmd_spawn('mpvc prev'),
                                     },
                 ),
                 widget.Image(
-                    filename='~/.config/qtile/icons/pause-button.png',
+                    filename='~/.config/qtile/icons/neon-pause-button.png',
                     mouse_callbacks={
                                         'Button1': lambda: qtile.cmd_spawn('mpvc -p'),
                                     },
                 ),
                 widget.Image(
-                    filename='~/.config/qtile/icons/next-button.png',
+                    filename='~/.config/qtile/icons/neon-next-button.png',
                     mouse_callbacks={
                                         'Button1': lambda: qtile.cmd_spawn('mpvc next'),
                                     },
                 ),
-                widget.Image(
-                    filename='~/.config/qtile/icons/stop-button.png',
-                    mouse_callbacks={
-                                        'Button1': lambda: qtile.cmd_spawn('mpvc -k'),
-                                    },
-                ),
+#                widget.Image(
+#                    filename='~/.config/qtile/icons/stop-button.png',
+#                    mouse_callbacks={
+#                                        'Button1': lambda: qtile.cmd_spawn('mpvc -k'),
+#                                    },
+#                ),
 #song duration
 #                widget.GenPollText(
 #                    func=lambda: subprocess.check_output("/home/andrew/scripts/shell/mpvcduration").decode("utf-8"),
@@ -263,49 +263,49 @@ screens = [
                 widget.TextBox(
                     font='FontAwesome 5 Free Solid',
                     text='',
-                    foreground='#b8ba25',
+                    foreground='#23fd00',
                 ),
                 widget.Memory( #ram
                     format = '{MemPercent:.0f}% ',
-                    foreground='#b8ba25',
+                    foreground='#23fd00',
                 ),
                 widget.TextBox(
                     font='FontAwesome 5 Free Solid',
                     text='',
-                    foreground='#fabd2f',
+                    foreground='#fffd00',
                 ),
                 widget.Memory( #swp
                     format = '{SwapPercent:.0f}% ',
-                    foreground='#fabd2f',
+                    foreground='#fffd00',
                 ),
                 widget.TextBox(
                     font='FontAwesome 5 Free Solid',
                     text='',
-                    foreground='#689d69',
+                    foreground='#1a8fff',
                 ),
                 widget.CPU(
                     format='{load_percent}% ',
-                    foreground='#689d69',
+                    foreground='#1a8fff',
                 ),
                 widget.TextBox(
                     font='FontAwesome 5 Free Solid',
                     text='',
-                    foreground='#fe8019',
+                    foreground='#f76806',
                 ),
                 widget.ThermalSensor(
-                    foreground='#fe8019',
+                    foreground='#f76806',
                 ),
                 widget.TextBox(
                     font='FontAwesome 5 Free Solid',
                     text=' ',
-                    foreground='#b16286',
+                    foreground='#fd28ff',
                     mouse_callbacks={'Button3': lambda: qtile.cmd_spawn('pavucontrol'),
                                     'Button2': lambda: qtile.cmd_spawn('wmctrl -c :ACTIVE:')                     
                                     },
                 ),
                 widget.PulseVolume(
                     update_interval=0.1,
-                    foreground='#b16286',
+                    foreground='#fd28ff',
                     step=5,
                     mouse_callbacks={'Button3': lambda: qtile.cmd_spawn('pavucontrol'),
                                     'Button2': lambda: qtile.cmd_spawn('wmctrl -c :ACTIVE:')                     
@@ -335,6 +335,7 @@ screens = [
 #                widget.Systray(),
             ],
             25,
+            background="#00000000",
             margin=8
         ),
     ),
