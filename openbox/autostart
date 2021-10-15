@@ -1,0 +1,21 @@
+(sleep 1s && dunst) &
+#(sleep 1s && lxsession) &
+(sleep 1s && nitrogen --restore) &
+(sleep 1s && lxpanel) &
+(sleep 1s && pnmixer) &
+(sleep 1s && flameshot) &
+(sleep 1s && kdeconnect-indicator) &
+(sleep 1s && nm-applet) &
+(sleep 1s && copyq) &
+(sleep 1s && twitch-indicator) &
+(sleep 1s && deadbeef --stop) &
+(sleep 1s && spacefm) &
+(sleep 1s && brave) &
+(sleep 1s && fsearch) &
+(sleep 1s && picom --config .config/picom/picom.conf) &
+(sleep 1s && redshift) &
+(sleep 1s && unclutter --timeout 5) & 
+(sleep 1s && xset -dpms) &
+(sleep 1s && xset s off) & 
+(sleep 1s && xset -b) &
+#(sleep 5s && /home/andrew/scripts/lxqtpanel.sh) &

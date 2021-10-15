@@ -1,0 +1,112 @@
+# lxpanel <profile> config file. Manually editing is not recommended.
+# Use preference dialog in lxpanel to adjust config when you can.
+
+Global {
+  edge=left
+  allign=left
+  margin=0
+  widthtype=percent
+  width=100
+  height=150
+  transparent=1
+  tintcolor=#000000
+  alpha=255
+  setdocktype=1
+  setpartialstrut=1
+  usefontcolor=1
+  fontcolor=#ffffff
+  usefontsize=0
+  fontsize=10
+  background=0
+  backgroundfile=/usr/share/lxpanel/images/background.png
+  align=center
+}
+Plugin {
+  type=menu
+  Config {
+    image=/home/andrew/Documents/archlinux-icon.png
+    system {
+    }
+    separator {
+    }
+    item {
+      command=run
+    }
+    separator {
+    }
+    item {
+      image=gnome-logout
+      command=logout
+    }
+  }
+}
+Plugin {
+  type=pager
+  Config {
+  }
+}
+Plugin {
+  type=taskbar
+  expand=1
+  Config {
+    tooltips=-1
+    IconsOnly=0
+    AcceptSkipPager=1
+    ShowIconified=1
+    ShowMapped=1
+    ShowAllDesks=0
+    UseMouseWheel=1
+    UseUrgencyHint=1
+    FlatButton=-1
+    MaxTaskWidth=1000
+    spacing=1
+    DisableUpscale=0
+    UseSmallerIcons=0
+  }
+}
+Plugin {
+  type=launchbar
+  Config {
+    Button {
+      id=mpv.desktop
+    }
+  }
+}
+Plugin {
+  type=kbled
+  Config {
+    ShowCapsLock=1
+    ShowNumLock=0
+    ShowScrollLock=0
+  }
+}
+Plugin {
+  type=thermal
+  Config {
+    NormalColor=#00ff00
+    Warning1Color=#fff000
+    Warning2Color=#ff0000
+    AutomaticLevels=0
+    Warning1Temp=50
+    Warning2Temp=65
+    AutomaticSensor=1
+  }
+}
+Plugin {
+  type=dclock
+  Config {
+    ClockFmt=%A, Week %U, %Y/%m/%d, %T
+    TooltipFmt=%A %x
+    BoldFont=1
+    IconOnly=0
+    CenterText=0
+  }
+}
+Plugin {
+  type=wincmd
+  Config {
+    Button1=iconify
+    Button2=shade
+    Toggle=1
+  }
+}
