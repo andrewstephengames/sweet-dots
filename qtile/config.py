@@ -106,7 +106,7 @@ keys = [
         desc="Launch host filesystem with a keybinding"),
     Key([mod], "w", lazy.spawn("firefox"),
         desc="Launch Firefox"),
-    Key([mod], "f", lazy.spawn("pcmanfm-qt"),
+    Key([mod], "f", lazy.spawn("pcmanfm"),
         desc="Launch PCManFM"),
     Key([mod], "m", lazy.spawn("scripts/shell/mcpe"),
         desc="Launch MCPE"),
@@ -281,11 +281,11 @@ screens = [
                 widget.TextBox(
                     font='FontAwesome 5 Free Solid',
                     text='',
-                    foreground='#1a8fff',
+                    foreground='#0dcdcd',
                 ),
                 widget.CPU(
                     format='{load_percent}% ',
-                    foreground='#1a8fff',
+                    foreground='#0dcdcd',
                 ),
                 widget.TextBox(
                     font='FontAwesome 5 Free Solid',
@@ -332,10 +332,8 @@ screens = [
                 widget.Spacer(
                     length=10
                 ),
-#                widget.Systray(),
             ],
             25,
-            background="#00000000",
             margin=8
         ),
     ),
