@@ -10,8 +10,9 @@ unclutter --timeout 3 &
 nitrogen --restore &
 flameshot &
 pcmanfm -d &
-kdeconnect-indicator &
+#kdeconnect-indicator &
 xset -dpms &
 xset s off &
 xset -b &
+dolphin &
 #brave &
