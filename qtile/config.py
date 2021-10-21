@@ -106,7 +106,7 @@ keys = [
         desc="Launch host filesystem with a keybinding"),
     Key([mod], "w", lazy.spawn("firefox"),
         desc="Launch Firefox"),
-    Key([mod], "f", lazy.spawn("pcmanfm"),
+    Key([mod], "f", lazy.spawn("dolphin"),
         desc="Launch PCManFM"),
     Key([mod], "m", lazy.spawn("scripts/shell/mcpe"),
         desc="Launch MCPE"),
@@ -129,7 +129,7 @@ keys = [
 ]
 
 group_names = [("", {'layout': 'max'}),
-               ("", {'layout': 'columns', 'matches':[Match(wm_class=["spacefm"])]}),
+               ("", {'layout': 'columns', 'matches':[Match(wm_class=["dolphin"])]}),
                ("", {'layout': 'max'}),
                ("", {'layout': 'tile', 'matches':[Match(wm_class=["deadbeef"])]}),
                ("", {'layout': 'columns', 'matches':[Match(wm_class=["fsearch"])]}),
