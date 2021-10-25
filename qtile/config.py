@@ -124,7 +124,7 @@ keys = [
         desc="Show most recent notification in history"),
     Key([mod, "shift"], "n", lazy.spawn("dunstctl close-all"), 
         desc="Close notifications on the screen"),
-    Key([mod], "c", lazy.spawn("alacritty -e calc"),
+    Key([mod], "c", lazy.spawn("lxterminal -e calc"),
         desc="Launch calc"),
 ]
 
@@ -363,6 +363,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='leafpad'),
     Match(wm_class='copyq'),
     Match(wm_class='opengl'),
+    Match(wm_class='lxterminal'),
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
 ],
