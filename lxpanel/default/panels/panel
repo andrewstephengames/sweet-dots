@@ -2,12 +2,12 @@
 # Use preference dialog in lxpanel to adjust config when you can.
 
 Global {
-  edge=left
+  edge=top
   allign=left
-  margin=0
+  margin=2
   widthtype=percent
   width=100
-  height=150
+  height=25
   transparent=1
   tintcolor=#000000
   alpha=255
@@ -19,7 +19,7 @@ Global {
   fontsize=10
   background=0
   backgroundfile=/usr/share/lxpanel/images/background.png
-  align=center
+  align=left
 }
 Plugin {
   type=menu
