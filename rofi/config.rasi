@@ -1,5 +1,5 @@
 configuration {
-	modi: "drun,emoji,run,ssh";
+	modi: "drun,emoji,run";
 /*	columns: 1;*/
 	font: "Inter 15";
 /*	bw: 1;*/
