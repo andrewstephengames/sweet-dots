@@ -129,7 +129,7 @@ keys = [
 ]
 
 group_names = [("", {'layout': 'max'}),
-               ("", {'layout': 'columns', 'matches':[Match(wm_class=["dolphin"])]}),
+               ("", {'layout': 'max', 'matches':[Match(wm_class=["dolphin"])]}),
                ("", {'layout': 'max'}),
                ("", {'layout': 'tile', 'matches':[Match(wm_class=["deadbeef"])]}),
                ("", {'layout': 'columns', 'matches':[Match(wm_class=["fsearch"])]}),
