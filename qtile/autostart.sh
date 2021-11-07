@@ -9,7 +9,7 @@ redshift &
 unclutter --timeout 3 &
 nitrogen --restore &
 flameshot &
-pcmanfm -d &
+#pcmanfm -d &
 #kdeconnect-indicator &
 xset -dpms &
 xset s off &
