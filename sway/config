@@ -196,7 +196,7 @@ seat * hide_cursor when-typing enable
     bindsym $mod+s exec grim - | wl-copy && notify-send "Screenshot copied to clipboard!"
     bindsym $mod+Shift+s exec grim /home/andrew/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Screenshot saved!"
     bindsym $mod+g exec grim -g "$(slurp)" /tmp/Screenshot_$(date +%Y%m%d_%H%M%S).png && wl-copy < /tmp/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Selection copied to clipboard!"
-    bindsym $mod+g+s exec grim -g "$(slurp)" /home/andrew/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Selection saved!"
+    bindsym $mod+Shift+g exec grim -g "$(slurp)" /home/andrew/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Selection saved!"
     bindsym Page_Up exec pamixer -i 5
     bindsym Page_Down exec pamixer -d 5
     bindsym Pause exec pamixer -t
