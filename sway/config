@@ -15,20 +15,53 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term alacritty
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-set $menu rofi -show drun
+
+# Defining defaults
+
+set $menu wofi --show drun -I -W 20% -H 25%
 default_border pixel
 default_floating_border pixel
 exec_always --no-startup-id autotiling
 for_window [app_id="lxterminal"] floating enable
 for_window [class="Leafpad"] floating enable
+for_window [app_id="zenity"] floating enable
+#                border  bg      text    child_brder
+client.focused #1a8fff #1a8fff #ffffff    #1a8fff
+client.unfocused #000000 #000000 #ffffff  #000000
+client.focused_inactive #000000 #000000 #ffffff  #000000
+client.urgent #000000 #000000 #ffffff  #000000
+
+# Swaynagmode
+
+#set $nag exec swaynagmode
+#mode "nag" {
+#  bindsym {
+#    Ctrl+d    mode "default"
+#
+#    Ctrl+c    $nag --exit
+#    q         $nag --exit
+#    Escape    $nag --exit
+#
+#    Return    $nag --confirm
+#
+#    Tab       $nag --select prev
+#    Shift+Tab $nag --select next
+#
+#    Left      $nag --select next
+#    Right     $nag --select prev
+#
+#    Up        $nag --select next
+#    Down      $nag --select prev
+#  }
+#}
+
+# alttab
 
 exec gammastep
 exec dunst
 exec lxsession
 exec sh $HOME/scripts/shell/dotsync
+exec xrdb /home/andrew/.Xdefaults
 exec ydotoold
 exec waydroid session start
 workspace 2
@@ -86,7 +119,8 @@ seat * hide_cursor when-typing enable
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+r exec $menu
+#    bindsym $mod+d exec $menu
+    bindsym --release Super_L exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -100,9 +134,9 @@ seat * hide_cursor when-typing enable
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-#
-# Moving around:
-#
+
+ #Moving around:
+
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
@@ -157,8 +191,8 @@ seat * hide_cursor when-typing enable
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+#    bindsym $mod+b splith
+#    bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+y layout stacking
@@ -207,9 +241,13 @@ seat * hide_cursor when-typing enable
     bindsym Control+Shift+space exec mpvc -p
     bindsym $mod+n exec dunstctl history-pop
     bindsym $mod+Shift+n exec dunstctl close-all
-#    bindsym Control+Shift+g ydotool mousemove --absolute -x 0 -y 0
+    bindsym Control+Shift+g ydotool mousemove --absolute -x 0 -y 0
     bindsym $mod+p exec sh $HOME/scripts/shell/cpu
     bindsym $mod+c exec lxterminal -e calc
+    bindsym $mod+o output VGA-1 mode --custom 1280x720@75hz
+    bindsym $mod+Shift+o output VGA-1 resolution 1920x1080@60hz
+    bindsym $mod+b exec dunstctl set-paused true && zenity --text-info --filename=$HOME/.config/sway/notify --width=300 --height=130 
+    bindsym $mod+Shift+b exec dunstctl set-paused false && notify-send "Do not disturb disabled."
 
 #
 # Gtk workaround
@@ -227,27 +265,27 @@ exec_always {
 #
 # Resizing containers:
 #
-mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left resize grow width 20px
-    bindsym $down resize shrink height 20px
-    bindsym $up resize grow height 20px
-    bindsym $right resize shrink width 20px
+#mode "resize" {
+#    # left will shrink the containers width
+#    # right will grow the containers width
+#    # up will shrink the containers height
+#    # down will grow the containers height
+    bindsym Alt+$left resize grow width 20px
+    bindsym Alt+$down resize shrink height 20px
+    bindsym Alt+$up resize grow height 20px
+    bindsym Alt+$right resize shrink width 20px
 
     # Ditto, with arrow keys
-    bindsym Left resize shrink width 20px
-    bindsym Down resize grow height 20px
-    bindsym Up resize shrink height 20px
-    bindsym Right resize grow width 20px
+    bindsym Alt+Left resize shrink width 20px
+    bindsym Alt+Down resize grow height 20px
+    bindsym Alt+Up resize shrink height 20px
+    bindsym Alt+Right resize grow width 20px
 
     # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+x mode "resize"
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#}
+#bindsym $mod+r mode "resize"
 
 #
 # Status Bar:
