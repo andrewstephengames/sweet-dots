@@ -1,6 +1,6 @@
 # Default config for sway
 #
-# Copy this to ~/.config/sway/config and edit it to your liking.
+# Copy this to ~.configswayconfig and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
 
@@ -18,13 +18,16 @@ set $term alacritty
 
 # Defining defaults
 
-set $menu wofi --show drun -I -W 20% -H 25%
+set $menu wofi --show drun -I -W 20% -H 25% --gtk-dark
+exec env RUST_BACKTRACE=1 swayrd > tmpswayrd.log 2>&1
 default_border pixel
 default_floating_border pixel
 exec_always --no-startup-id autotiling
 for_window [app_id="lxterminal"] floating enable
-for_window [class="Leafpad"] floating enable
+for_window [app_id="featherpad"] floating enable
 for_window [app_id="zenity"] floating enable
+for_window [app_id="copyq"] floating enable
+#for_window [app_id="dolphin"] floating enable
 #                border  bg      text    child_brder
 client.focused #1a8fff #1a8fff #ffffff    #1a8fff
 client.unfocused #000000 #000000 #ffffff  #000000
@@ -57,21 +60,38 @@ client.urgent #000000 #000000 #ffffff  #000000
 
 # alttab
 
+# Autostart
 exec gammastep
 exec dunst
 exec lxsession
 exec sh $HOME/scripts/shell/dotsync
+exec sh $HOME/scripts/shell/randbg
 exec xrdb /home/andrew/.Xdefaults
 exec ydotoold
-exec waydroid session start
-workspace 2
+exec adb connect 192.168.0.178
+#exec waydroid session start
+workspace 1 
+exec MOZ_ENABLE_WAYLAND=1 waterfox-g4
+workspace 2 
 exec dolphin
+workspace 3 
+exec alacritty
+workspace 4 
+exec alacritty -e sh $HOME/scripts/shell/mus
+workspace 6
+exec multimc
+workspace 7
+exec lximage-qt $HOME/Documents/timetable-11a-darkmode.png
+workspace 8
+exec transmission-gtk
+#exec sleep 10
+#workspace 5
+#exec waydroid show-full-ui
 workspace 1
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/andrew/wallpapers/0239.jpg fill
+# Default wallpaper (more resolutions are available in usrsharebackgroundssway)
 seat * hide_cursor 5000
 seat * hide_cursor when-typing enable
 #
@@ -98,7 +118,7 @@ seat * hide_cursor when-typing enable
 #
 # Example configuration:
 #
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#   input "2:14:SynPS2_Synaptics_TouchPad" {
 #       dwt enabled
 #       tap enabled
 #       natural_scroll enabled
@@ -133,7 +153,7 @@ seat * hide_cursor when-typing enable
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaymsg exit
 
  #Moving around:
 
@@ -227,6 +247,8 @@ seat * hide_cursor when-typing enable
 # User binds:
 #
     bindsym $mod+w exec MOZ_ENABLE_WAYLAND=1 waterfox-g4
+    bindsym $mod+Space exec env RUST_BACKTRACE=1 \
+    swayr switch-window >> tmpswayr.log 2>&1
     bindsym $mod+s exec grim - | wl-copy && notify-send "Screenshot copied to clipboard!"
     bindsym $mod+Shift+s exec grim /home/andrew/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Screenshot saved!"
     bindsym $mod+g exec grim -g "$(slurp)" /tmp/Screenshot_$(date +%Y%m%d_%H%M%S).png && wl-copy < /tmp/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Selection copied to clipboard!"
@@ -234,7 +256,7 @@ seat * hide_cursor when-typing enable
     bindsym Page_Up exec pamixer -i 5
     bindsym Page_Down exec pamixer -d 5
     bindsym Pause exec pamixer -t
-    bindsym Control+Shift+tab exec waterfox-g4 https://classroom.google.com/u/1/
+    bindsym Control+Shift+tab exec waterfox-g4 --new-tab https://www.classroom.google.com
     bindsym $mod+e exec rofi -show emoji -modi emoji
     bindsym Control+Shift+z exec mpvc prev
     bindsym Control+Shift+x exec mpvc next
@@ -242,12 +264,14 @@ seat * hide_cursor when-typing enable
     bindsym $mod+n exec dunstctl history-pop
     bindsym $mod+Shift+n exec dunstctl close-all
     bindsym Control+Shift+g ydotool mousemove --absolute -x 0 -y 0
-    bindsym $mod+p exec sh $HOME/scripts/shell/cpu
+    bindsym $mod+p exec sh $HOMEscriptsshellcpu
     bindsym $mod+c exec lxterminal -e calc
     bindsym $mod+o output VGA-1 mode --custom 1280x720@75hz
     bindsym $mod+Shift+o output VGA-1 resolution 1920x1080@60hz
-    bindsym $mod+b exec dunstctl set-paused true && zenity --text-info --filename=$HOME/.config/sway/notify --width=300 --height=130 
+    bindsym $mod+b exec dunstctl set-paused true && zenity --text-info --filename=$HOME.configswaynotify --width=300 --height=130 
     bindsym $mod+Shift+b exec dunstctl set-paused false && notify-send "Do not disturb disabled."
+    bindsym $mod+Shift+w output * bg `ls $HOME/wallpapers/*.jpg | sort -R | head -n1` fill
+    bindsym Alt+c exec copyq --start-server show
 
 #
 # Gtk workaround
@@ -257,7 +281,7 @@ set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
     gsettings set $gnome-schema gtk-theme 'Arc-BLACKEST'
-    gsettings set $gnome-schema icon-theme 'candy-icons'
+    gsettings set $gnome-schema icon-theme 'Tela-dark'
     gsettings set $gnome-schema font-name 'Roboto 12'
 }
 
@@ -296,7 +320,7 @@ exec_always {
 #
 #    # When the status_command prints a new line to stdout, swaybar updates.
 #    # The default just shows the current date and time.
-##    status_command while date +'%A  Week %W  %Y/%m/%d  %T'; do sleep 1; done
+##    status_command while date +'%A  Week %W  %Y%m%d  %T'; do sleep 1; done
 #    swaybar_command waybar
 ##    height 25
 ##    font Inter
@@ -307,5 +331,5 @@ exec_always {
 ##        inactive_workspace #000000 #000000 #ffffff
 ##    }
 #}
-
-include /etc/sway/config.d/*
+include etcswayconfig.d*
+output * bg `ls $HOME/wallpapers/*.jpg | sort -R | head -n1` fill
