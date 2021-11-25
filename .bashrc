@@ -12,9 +12,9 @@ ks=0
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 setfont -d || clear ; $HOME/scripts/shell/autocowsay; set ks=1
-if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-    exec sway
-fi
+#if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+#    exec sway
+#fi
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export EDITOR=vim
 export VISUAL=vim
@@ -36,7 +36,7 @@ alias yay='paru'
 alias scr='sxiv ~/Screenshots'
 alias wall='sxiv ~/wallpapers'
 alias phone='cd /run/user/1000/a2f66128170a1390/'
-alias path='pwd | zenity --text-info'
+alias path='pwd | zenity --text-info --width=300 --height=130'
 alias speed='speedtest-cli --simple --secure --bytes | sed 's/byte/B/''
 alias droidfix='systemctl restart waydroid-container'
 alias mus='~/scripts/shell/mus'
