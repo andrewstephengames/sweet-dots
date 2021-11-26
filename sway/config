@@ -73,11 +73,13 @@ exec adb connect 192.168.0.178
 workspace 1 
 exec MOZ_ENABLE_WAYLAND=1 waterfox-g4
 workspace 2 
-exec dolphin
+exec dolphin ~
 workspace 3 
 exec alacritty
 workspace 4 
 exec alacritty -e sh $HOME/scripts/shell/mus
+workspace 5
+exec dolphin
 workspace 6
 exec multimc
 workspace 7
@@ -332,4 +334,5 @@ exec_always {
 ##    }
 #}
 include etcswayconfig.d*
-output * bg `ls $HOME/wallpapers/*.jpg | sort -R | head -n1` fill
+#output * bg `ls $HOME/wallpapers/*.jpg | sort -R | head -n1` fill
+output * bg /home/andrew/wallpapers/0186.jpg fill
