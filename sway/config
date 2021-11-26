@@ -65,7 +65,7 @@ exec gammastep
 exec dunst
 exec lxsession
 exec sh $HOME/scripts/shell/dotsync
-exec sh $HOME/scripts/shell/randbg
+#exec sh $HOME/scripts/shell/randbg
 exec xrdb /home/andrew/.Xdefaults
 exec ydotoold
 exec adb connect 192.168.0.178
@@ -334,5 +334,4 @@ exec_always {
 ##    }
 #}
 include etcswayconfig.d*
-#output * bg `ls $HOME/wallpapers/*.jpg | sort -R | head -n1` fill
-output * bg /home/andrew/wallpapers/0186.jpg fill
+output * bg `ls $HOME/wallpapers/*.jpg | sort -R | head -n1` fill
