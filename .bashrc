@@ -39,6 +39,7 @@ alias phone='cd /run/user/1000/a2f66128170a1390/'
 alias path='pwd | zenity --text-info --width=300 --height=130'
 alias speed='speedtest-cli --simple --secure --bytes | sed 's/byte/B/''
 alias droidfix='systemctl restart waydroid-container'
+alias scrcpy='adb connect 192.168.0.178 && scrcpy'
 alias mus='~/scripts/shell/mus'
 alias cpu='~/scripts/shell/cpu'
 # alias mem='[free -h | head -n 2 | awk 'print $6}' | tail -n 1]'
@@ -57,6 +58,7 @@ export PS2='$(tput setaf 2)> '
 [[ -z $ks ]] && $HOME/scripts/shell/autocowsay
 #$HOME/scripts/shell/ri
 source /usr/share/doc/pkgfile/command-not-found.bash
+source $HOME/.profile
 
 #if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
 #  exec startx
