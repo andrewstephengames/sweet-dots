@@ -65,6 +65,7 @@ exec gammastep
 exec dunst
 exec lxsession
 exec sh $HOME/scripts/shell/dotsync
+exec sh $HOME/scripts/shell/pkgmaintain
 #exec sh $HOME/scripts/shell/randbg
 exec xrdb /home/andrew/.Xdefaults
 exec ydotoold
