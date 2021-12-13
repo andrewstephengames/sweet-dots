@@ -22,17 +22,22 @@ set $menu wofi --show drun -I -W 20% -H 25% --gtk-dark
 exec env RUST_BACKTRACE=1 swayrd > tmpswayrd.log 2>&1
 default_border pixel
 default_floating_border pixel
-exec_always --no-startup-id autotiling
+hide_edge_borders --i3 smart_no_gaps
 for_window [app_id="lxterminal"] floating enable
 for_window [app_id="featherpad"] floating enable
 for_window [app_id="zenity"] floating enable
 for_window [app_id="copyq"] floating enable
+#remove titlebar for tabbed layout
+font pango:Roboto 0
+titlebar_border_thickness 0                                              
+titlebar_padding 0
 #for_window [app_id="dolphin"] floating enable
 #                border  bg      text    child_brder
 client.focused #1a8fff #1a8fff #ffffff    #1a8fff
 client.unfocused #000000 #000000 #ffffff  #000000
 client.focused_inactive #000000 #000000 #ffffff  #000000
 client.urgent #000000 #000000 #ffffff  #000000
+exec_always --no-startup-id autotiling-rs
 
 # Swaynagmode
 
@@ -78,7 +83,7 @@ exec dolphin ~
 workspace 3 
 exec alacritty
 workspace 4 
-exec alacritty -e sh $HOME/scripts/shell/mus
+exec cool-retro-term -e sh $HOME/scripts/shell/mus
 workspace 5
 exec dolphin
 workspace 6
@@ -143,7 +148,7 @@ seat * hide_cursor when-typing enable
 
     # Start your launcher
 #    bindsym $mod+d exec $menu
-    bindsym --release Super_L exec $menu
+    bindsym $mod+r exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
