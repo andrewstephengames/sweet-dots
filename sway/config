@@ -272,7 +272,7 @@ seat * hide_cursor when-typing enable
     bindsym $mod+n exec dunstctl history-pop
     bindsym $mod+Shift+n exec dunstctl close-all
     bindsym Control+Shift+g ydotool mousemove --absolute -x 0 -y 0
-    bindsym $mod+p exec sh $HOMEscriptsshellcpu
+    bindsym $mod+p exec sh $HOME/scripts/shell/cpu
     bindsym $mod+c exec lxterminal -e calc
     bindsym $mod+o output VGA-1 mode --custom 1280x720@75hz
     bindsym $mod+Shift+o output VGA-1 resolution 1920x1080@60hz
