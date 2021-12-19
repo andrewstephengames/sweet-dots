@@ -19,7 +19,7 @@ set $term alacritty
 # Defining defaults
 
 set $menu wofi --show drun -I -W 20% -H 25% --gtk-dark
-exec env RUST_BACKTRACE=1 swayrd > tmpswayrd.log 2>&1
+#exec env RUST_BACKTRACE=1 swayrd > tmpswayrd.log 2>&1
 default_border pixel
 default_floating_border pixel
 hide_edge_borders --i3 smart_no_gaps
@@ -84,14 +84,14 @@ workspace 3
 exec alacritty
 workspace 4 
 exec cool-retro-term -e sh $HOME/scripts/shell/mus
-workspace 5
-exec dolphin
+#workspace 5
+#exec dolphin
 workspace 6
 exec multimc
 workspace 7
 exec lximage-qt $HOME/Documents/timetable-11a-darkmode.png
 workspace 8
-exec transmission-gtk
+exec qbittorrent
 #exec sleep 10
 #workspace 5
 #exec waydroid show-full-ui
