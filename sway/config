@@ -91,6 +91,7 @@ exec multimc
 workspace 7
 exec lximage-qt $HOME/Documents/timetable-11a-darkmode.png
 workspace 8
+exec emote
 exec qbittorrent
 #exec sleep 10
 #workspace 5
@@ -265,7 +266,7 @@ seat * hide_cursor when-typing enable
     bindsym Page_Down exec pamixer -d 5
     bindsym Pause exec pamixer -t
     bindsym Control+Shift+tab exec waterfox-g4 --new-tab https://www.classroom.google.com
-    bindsym $mod+e exec rofi -show emoji -modi emoji
+    bindsym $mod+e exec emote
     bindsym Control+Shift+z exec mpvc prev
     bindsym Control+Shift+x exec mpvc next
     bindsym Control+Shift+space exec mpvc -p
@@ -289,7 +290,7 @@ set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
     gsettings set $gnome-schema gtk-theme 'Arc-BLACKEST'
-    gsettings set $gnome-schema icon-theme 'Tela-dark'
+    gsettings set $gnome-schema icon-theme 'candy-icons'
     gsettings set $gnome-schema font-name 'Roboto 12'
 }
 
