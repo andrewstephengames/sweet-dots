@@ -16,21 +16,31 @@ set $right l
 # Your preferred terminal emulator
 set $term alacritty
 
+# This is for use with sway-borders
+#border_images.focused ~/.config/sway/borders/dshadows.png
+#border_images.focused_inactive ~/.config/sway/borders/dshadows.png
+#border_images.unfocused ~/.config/sway/borders/dshadows.png
+#border_images.urgent ~/.config/sway/borders/dshadows.png
+
+# Disable titlebar
+font pango:Roboto 0
+titlebar_border_thickness 0                                              
+titlebar_padding 0
+default_border pixel
+default_floating_border pixel
+hide_edge_borders --i3 smart_no_gaps
+
 # Defining defaults
 
 set $menu wofi --show drun -I -W 20% -H 25% --gtk-dark
 #exec env RUST_BACKTRACE=1 swayrd > tmpswayrd.log 2>&1
-default_border pixel
-default_floating_border pixel
-hide_edge_borders --i3 smart_no_gaps
+
+# Floating exceptions
 for_window [app_id="lxterminal"] floating enable
 for_window [app_id="featherpad"] floating enable
 for_window [app_id="zenity"] floating enable
 for_window [app_id="copyq"] floating enable
 #remove titlebar for tabbed layout
-font pango:Roboto 0
-titlebar_border_thickness 0                                              
-titlebar_padding 0
 #for_window [app_id="dolphin"] floating enable
 #                border  bg      text    child_brder
 client.focused #1a8fff #1a8fff #ffffff    #1a8fff
@@ -68,7 +78,7 @@ exec_always --no-startup-id autotiling-rs
 # Autostart
 exec gammastep
 exec dunst
-exec lxsession
+#exec lxsession
 exec sh $HOME/scripts/shell/dotsync
 exec sh $HOME/scripts/shell/pkgmaintain
 #exec sh $HOME/scripts/shell/randbg
@@ -84,15 +94,15 @@ workspace 3
 exec alacritty
 workspace 4 
 exec cool-retro-term -e sh $HOME/scripts/shell/mus
-#workspace 5
-#exec dolphin
+workspace 5
+#exec kdeconnect-app
 workspace 6
 exec multimc
 workspace 7
 exec lximage-qt $HOME/Documents/timetable-11a-darkmode.png
 workspace 8
 exec emote
-exec qbittorrent
+exec transmission-gtk
 #exec sleep 10
 #workspace 5
 #exec waydroid show-full-ui
@@ -324,21 +334,21 @@ exec_always {
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-#bar {
-##    position top
-#
-#    # When the status_command prints a new line to stdout, swaybar updates.
-#    # The default just shows the current date and time.
-##    status_command while date +'%A  Week %W  %Y%m%d  %T'; do sleep 1; done
-#    swaybar_command waybar
-##    height 25
-##    font Inter
-##    colors {
-##        statusline #ffffff
-##        background #000000
-##        focused_workspace #23fd00 #000000 #ffffff
-##        inactive_workspace #000000 #000000 #ffffff
-##    }
-#}
+bar {
+#    position left
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+#    status_command while date +'%A  Week %W  %Y%m%d  %T'; do sleep 1; done
+#   swaybar_command 
+#    height 25
+#    font Inter
+#    colors {
+#        statusline #ffffff
+#        background #000000
+#        focused_workspace #23fd00 #000000 #ffffff
+#        inactive_workspace #000000 #000000 #ffffff
+#    }
+}
 include etcswayconfig.d*
 output * bg `ls $HOME/wallpapers/*.jpg | sort -R | head -n1` fill
