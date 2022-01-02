@@ -95,7 +95,7 @@ exec alacritty
 workspace 4 
 exec cool-retro-term -e sh $HOME/scripts/shell/mus
 workspace 5
-#exec kdeconnect-app
+exec newsflash
 workspace 6
 exec multimc
 workspace 7
