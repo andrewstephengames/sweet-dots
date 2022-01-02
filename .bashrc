@@ -11,7 +11,7 @@ ks=0
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-setfont -d || clear ; $HOME/scripts/shell/autocowsay; set ks=1
+setfont -d || clear ; $HOME/scripts/autocowsay; set ks=1
 #if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
 #    exec sway
 #fi
@@ -23,7 +23,7 @@ export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\D{%H:%M}\[$(
 #export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 2)\]\D{%H:%M}\[$(tput setaf 5) \]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$  \[$(tput sgr0)\]"
 export PS2='$(tput setaf 2)> '
 
-[[ -z $ks ]] && $HOME/scripts/shell/autocowsay
+[[ -z $ks ]] && $HOME/scripts/autocowsay
 #$HOME/scripts/shell/ri
 source /usr/share/doc/pkgfile/command-not-found.bash
 source $HOME/.profile
