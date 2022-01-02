@@ -2,12 +2,12 @@
 # Use preference dialog in lxpanel to adjust config when you can.
 
 Global {
-  edge=top
+  edge=left
   allign=left
   margin=2
   widthtype=percent
   width=100
-  height=25
+  height=40
   transparent=1
   tintcolor=#000000
   alpha=255
@@ -24,7 +24,6 @@ Global {
 Plugin {
   type=menu
   Config {
-    image=/home/andrew/Documents/archlinux-icon.png
     system {
     }
     separator {
@@ -35,78 +34,46 @@ Plugin {
     separator {
     }
     item {
-      image=gnome-logout
       command=logout
+      image=gnome-logout
     }
+    image=/home/andrew/.config/qtile/icons/arch-sweet-neon.png
   }
 }
 Plugin {
-  type=pager
+  type=space
+  Config {
+    Size=10
+  }
+}
+Plugin {
+  type=deskno
   Config {
   }
 }
 Plugin {
-  type=taskbar
-  expand=1
+  type=space
   Config {
-    tooltips=-1
-    IconsOnly=0
-    AcceptSkipPager=1
-    ShowIconified=1
-    ShowMapped=1
-    ShowAllDesks=0
-    UseMouseWheel=1
-    UseUrgencyHint=1
-    FlatButton=-1
-    MaxTaskWidth=1000
-    spacing=1
-    DisableUpscale=0
-    UseSmallerIcons=0
-  }
-}
-Plugin {
-  type=launchbar
-  Config {
-    Button {
-      id=mpv.desktop
-    }
-  }
-}
-Plugin {
-  type=kbled
-  Config {
-    ShowCapsLock=1
-    ShowNumLock=0
-    ShowScrollLock=0
-  }
-}
-Plugin {
-  type=thermal
-  Config {
-    NormalColor=#00ff00
-    Warning1Color=#fff000
-    Warning2Color=#ff0000
-    AutomaticLevels=0
-    Warning1Temp=50
-    Warning2Temp=65
-    AutomaticSensor=1
+    Size=5
   }
 }
 Plugin {
   type=dclock
   Config {
-    ClockFmt=%A, Week %U, %Y/%m/%d, %T
+    ClockFmt=%H %n %M
     TooltipFmt=%A %x
     BoldFont=1
     IconOnly=0
-    CenterText=0
+    CenterText=1
   }
 }
 Plugin {
-  type=wincmd
+  type=dclock
   Config {
-    Button1=iconify
-    Button2=shade
-    Toggle=1
+    ClockFmt=%Y %n  %m %n  %d
+    TooltipFmt=%A %x
+    BoldFont=0
+    IconOnly=0
+    CenterText=0
   }
 }
