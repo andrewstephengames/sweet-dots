@@ -23,12 +23,12 @@ set $term alacritty
 #border_images.urgent ~/.config/sway/borders/dshadows.png
 
 # Disable titlebar
-font pango:Roboto 0
+font pango:Monospace 0
 titlebar_border_thickness 0                                              
 titlebar_padding 0
-default_border pixel
-default_floating_border pixel
-hide_edge_borders --i3 smart_no_gaps
+default_border none
+default_floating_border none
+hide_edge_borders --i3 none
 
 # Defining defaults
 
