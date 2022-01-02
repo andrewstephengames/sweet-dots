@@ -83,8 +83,8 @@ exec sh $HOME/scripts/shell/dotsync
 exec sh $HOME/scripts/shell/pkgmaintain
 #exec sh $HOME/scripts/shell/randbg
 exec xrdb /home/andrew/.Xdefaults
-exec ydotoold
-exec adb connect 192.168.0.178
+#exec ydotoold
+#exec adb connect 192.168.0.178
 #exec waydroid session start
 workspace 1 
 exec MOZ_ENABLE_WAYLAND=1 waterfox-g4
@@ -101,12 +101,12 @@ exec multimc
 workspace 7
 exec lximage-qt $HOME/Documents/timetable-11a-darkmode.png
 workspace 8
-exec emote
 exec transmission-gtk
 #exec sleep 10
 #workspace 5
 #exec waydroid show-full-ui
 workspace 1
+exec emote
 
 ### Output configuration
 #
