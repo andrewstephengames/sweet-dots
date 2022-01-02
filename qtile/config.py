@@ -104,7 +104,7 @@ keys = [
         desc="Launch mpv with most recent clipboard entry"),
     Key(["control", "shift"], "k", lazy.spawn("scripts/shell/kdeconnect-qtile.sh"),
         desc="Launch host filesystem with a keybinding"),
-    Key([mod], "w", lazy.spawn("firefox"),
+    Key([mod], "w", lazy.spawn("waterfox-g4"),
         desc="Launch Firefox"),
     Key([mod], "f", lazy.spawn("dolphin"),
         desc="Launch PCManFM"),
