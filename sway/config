@@ -78,6 +78,8 @@ exec_always --no-startup-id autotiling-rs
 # Autostart
 exec gammastep
 exec dunst
+#kdeconnect
+exec /usr/lib/kdeconnectd -platform offscreen
 #exec lxsession
 exec sh $HOME/scripts/shell/dotsync
 exec sh $HOME/scripts/shell/pkgmaintain
@@ -93,7 +95,7 @@ exec dolphin ~
 workspace 3 
 exec alacritty
 workspace 4 
-exec cool-retro-term -e sh $HOME/scripts/shell/mus
+exec cool-retro-term -e $HOME/scripts/mus
 workspace 5
 exec newsflash
 workspace 6
