@@ -7,7 +7,12 @@
 #/_/   \_\_| |_|\__,_|_|  \___| \_/\_/  |____/ \__\___| .__/|_| |_|\___|_| |_|
 #                                                     |_|                     
 #                                 
+
+# Auxiliary variable
 ks=0
+
+# If .trash/ directory doesn't exist, create it
+[[ -z ~/.trash ]] && mkdir ~/.trash
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
