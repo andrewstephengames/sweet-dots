@@ -81,8 +81,8 @@ exec dunst
 #kdeconnect
 exec /usr/lib/kdeconnectd -platform offscreen
 #exec lxsession
-exec sh $HOME/scripts/shell/dotsync
-exec sh $HOME/scripts/shell/pkgmaintain
+exec sh $HOME/scripts/dotsync
+exec sh $HOME/scripts/pkgmaintain
 #exec sh $HOME/scripts/shell/randbg
 exec xrdb /home/andrew/.Xdefaults
 #exec ydotoold
