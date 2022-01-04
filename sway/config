@@ -33,6 +33,9 @@ hide_edge_borders --i3 none
 # Defining defaults
 
 set $menu wofi --show drun -I -W 20% -H 25% --gtk-dark
+
+# fix long waiting time to open certain Gtk+3 programs
+exec systemctl --user import-environment
 #exec env RUST_BACKTRACE=1 swayrd > tmpswayrd.log 2>&1
 
 # Floating exceptions
@@ -78,9 +81,7 @@ exec_always --no-startup-id autotiling-rs
 # Autostart
 exec gammastep
 exec dunst
-#kdeconnect
 exec /usr/lib/kdeconnectd -platform offscreen
-#exec lxsession
 exec sh $HOME/scripts/dotsync
 exec sh $HOME/scripts/pkgmaintain
 #exec sh $HOME/scripts/shell/randbg
@@ -91,13 +92,14 @@ exec xrdb /home/andrew/.Xdefaults
 workspace 1 
 exec MOZ_ENABLE_WAYLAND=1 waterfox-g4
 workspace 2 
-exec dolphin ~
+exec pcmanfm
 workspace 3 
 exec alacritty
 workspace 4 
 exec cool-retro-term -e $HOME/scripts/mus
 workspace 5
 exec newsflash
+exec pavucontrol
 workspace 6
 exec multimc
 workspace 7
