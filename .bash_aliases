@@ -1,4 +1,3 @@
-alias clock='tty-clock -xcC2'
 alias ls='ls --color=auto'
 alias c='clear'
 alias d='cd "$(ls -d */ | fzf)"; clear; exa --all --long --header --sort=modified'
