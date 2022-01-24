@@ -3,7 +3,6 @@ picom &
 #appimagelauncherd &
 sh $HOME/scripts/dotsync
 sh $HOME/scripts/pkgmaintain.sh
-lxsession &
 dunst &
 redshift &
 unclutter --timeout 3 &

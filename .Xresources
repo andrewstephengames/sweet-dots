@@ -5,7 +5,7 @@
 ! Source: https://github.com/morhetz/gruvbox-generalized
 ! Last Modified: 6 Sep 2014
 ! -----------------------------------------------------------------------------
-Xcursor-theme: Vanilla-DMZ
+Xcursor-theme: default
 XTerm*faceName: xft:Source Code Pro:size=18, \
                 xft:Noto Color Emoji:size=18, \
                 xft:Font Awesome 5 Free:size=18, \

@@ -98,7 +98,7 @@ keys = [
         desc="Kill *window"),
     Key(["control", "shift"], "g", lazy.spawn("xdotool mousemove 0 0"),
         desc="Move mouse out of your way"),
-    Key(["control", "shift"], "Tab", lazy.spawn("firefox https://classroom.google.com/u/1/"),
+    Key(["control", "shift"], "Tab", lazy.spawn("chromium --new-tab https://classroom.google.com/u/1/"),
         desc="Launch Google Classroom"),
     Key([mod], "t", lazy.spawn("scripts/shell/autompv.sh"),
         desc="Launch mpv with most recent clipboard entry"),
@@ -146,13 +146,13 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 
 layout_theme = {
                 "border_width": 1,
-                "margin": 8,
+#                "margin": 8,
                 "border_focus": "#1688F0",
                 "border_normal": "#1D2330"
                 }
 floating_theme = {
                 "border_width": 1,
-                "margin": 8,
+#                "margin": 8,
                 "border_focus": "#1688F0",
                 "border_normal": "#1D2330"
                 }
@@ -186,156 +186,156 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        top=bar.Bar(
-            [
-                widget.Spacer(
-                    length=10
-                ),
-                widget.LaunchBar(progs=[('', 'rofi -show drun', 'Launch Rofi')],
-                    default_icon='/home/andrew/.config/qtile/icons/arch-sweet-neon.png',
-                    padding=0,
-                ),
-                widget.GroupBox(
-                    font='FontAwesome 5 Free Regular',
-                    fontsize=18,
-                    disable_drag=True,
-                    highlight_method='border',
-#                    block_highlight_text_color='#000000',
-                    this_current_screen_border='#0dcdcd',
-                    urgent_border='#000000',
-                    active='#ffffff',
-                    inactive='#ffffff',
-                ),
-                widget.CurrentLayoutIcon(
-                    custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
-                ),
-# song name
-#                widget.GenPollText(
-#                    func=lambda: subprocess.check_output("/home/andrew/scripts/shell/mpvctitle").decode("utf-8"),
-#                    update_interval=1,
-#                    max_chars=32,
+#        top=bar.Bar(
+#            [
+#                widget.Spacer(
+#                    length=10
 #                ),
-                widget.Image(
-                    filename='~/.config/qtile/icons/neon-previous-button.png',
-                    mouse_callbacks={
-                                        'Button1': lambda: qtile.cmd_spawn('mpvc prev'),
-                                    },
-                ),
-                widget.Image(
-                    filename='~/.config/qtile/icons/neon-pause-button.png',
-                    mouse_callbacks={
-                                        'Button1': lambda: qtile.cmd_spawn('mpvc -p'),
-                                    },
-                ),
-                widget.Image(
-                    filename='~/.config/qtile/icons/neon-next-button.png',
-                    mouse_callbacks={
-                                        'Button1': lambda: qtile.cmd_spawn('mpvc next'),
-                                    },
-                ),
+#                widget.LaunchBar(progs=[('', 'rofi -show drun', 'Launch Rofi')],
+#                    default_icon='/home/andrew/.config/qtile/icons/arch-sweet-neon.png',
+#                    padding=0,
+#                ),
+#                widget.GroupBox(
+#                    font='FontAwesome 5 Free Regular',
+#                    fontsize=18,
+#                    disable_drag=True,
+#                    highlight_method='border',
+##                    block_highlight_text_color='#000000',
+#                    this_current_screen_border='#0dcdcd',
+#                    urgent_border='#000000',
+#                    active='#ffffff',
+#                    inactive='#ffffff',
+#                ),
+#                widget.CurrentLayoutIcon(
+#                    custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
+#                ),
+## song name
+##                widget.GenPollText(
+##                    func=lambda: subprocess.check_output("/home/andrew/scripts/shell/mpvctitle").decode("utf-8"),
+##                    update_interval=1,
+##                    max_chars=32,
+##                ),
 #                widget.Image(
-#                    filename='~/.config/qtile/icons/stop-button.png',
+#                    filename='~/.config/qtile/icons/neon-previous-button.png',
 #                    mouse_callbacks={
-#                                        'Button1': lambda: qtile.cmd_spawn('mpvc -k'),
+#                                        'Button1': lambda: qtile.cmd_spawn('mpvc prev'),
 #                                    },
 #                ),
-#song duration
-#                widget.GenPollText(
-#                    func=lambda: subprocess.check_output("/home/andrew/scripts/shell/mpvcduration").decode("utf-8"),
-#                    update_interval=0.5,
-#                ),
-                widget.TaskList(
-                    mouse_callbacks={'Button2': lambda: qtile.cmd_spawn('wmctrl -c :ACTIVE:')},
-                    txt_floating='',
-                    txt_minimized='',
-                    borderwidth=0,
-                    spacing=10,
-                    margin=-3,
-                ),
-#                widget.WindowName(
+#                widget.Image(
+#                    filename='~/.config/qtile/icons/neon-pause-button.png',
 #                    mouse_callbacks={
-#                                        'Button1': lambda: qtile.lazy.spawn.toggle_minimize(),
-#                                        'Button2': lambda: qtile.cmd_spawn('wmctrl -c :ACTIVE:')
+#                                        'Button1': lambda: qtile.cmd_spawn('mpvc -p'),
 #                                    },
-#                    txt_floating=' ',
 #                ),
-                widget.TextBox(text=' '),
-                widget.TextBox(
-                    font='FontAwesome 5 Free Solid',
-                    text='',
-                    foreground='#23fd00',
-                ),
-                widget.Memory( #ram
-                    format = '{MemPercent:.0f}% ',
-                    foreground='#23fd00',
-                ),
-                widget.TextBox(
-                    font='FontAwesome 5 Free Solid',
-                    text='',
-                    foreground='#fffd00',
-                ),
-                widget.Memory( #swp
-                    format = '{SwapPercent:.0f}% ',
-                    foreground='#fffd00',
-                ),
-                widget.TextBox(
-                    font='FontAwesome 5 Free Solid',
-                    text='',
-                    foreground='#0dcdcd',
-                ),
-                widget.CPU(
-                    format='{load_percent}% ',
-                    foreground='#0dcdcd',
-                ),
-                widget.TextBox(
-                    font='FontAwesome 5 Free Solid',
-                    text='',
-                    foreground='#f76806',
-                ),
-                widget.ThermalSensor(
-                    foreground='#f76806',
-                ),
-                widget.TextBox(
-                    font='FontAwesome 5 Free Solid',
-                    text=' ',
-                    foreground='#fd28ff',
-                    mouse_callbacks={'Button3': lambda: qtile.cmd_spawn('pavucontrol'),
-                                    'Button2': lambda: qtile.cmd_spawn('wmctrl -c :ACTIVE:')                     
-                                    },
-                ),
-                widget.PulseVolume(
-                    update_interval=0.1,
-                    foreground='#fd28ff',
-                    step=5,
-                    mouse_callbacks={'Button3': lambda: qtile.cmd_spawn('pavucontrol'),
-                                    'Button2': lambda: qtile.cmd_spawn('wmctrl -c :ACTIVE:')                     
-                                    },
-                ),
-                widget.Clock( #day of the week
-                    format=' %A ',
-                ),
-                widget.Clock( #number of the week
-                    format='Week %W ',
-                ),
-                widget.Clock( #date
-                    format='%Y/%m/%d',
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('gsimplecal'),
-                                       'Button2': lambda: qtile.cmd_spawn('wmctrl -c :ACTIVE:')                     
-                    },
-                ),
-                widget.Clock( #time in hours, seconds, mins, 24h format
-                    format=' %T',
-                ),
-                widget.Systray(
-                    icon_size=22
-                ),
-                widget.Spacer(
-                    length=10
-                ),
-            ],
-            25,
-            margin=8
-        ),
+#                widget.Image(
+#                    filename='~/.config/qtile/icons/neon-next-button.png',
+#                    mouse_callbacks={
+#                                        'Button1': lambda: qtile.cmd_spawn('mpvc next'),
+#                                    },
+#                ),
+##                widget.Image(
+##                    filename='~/.config/qtile/icons/stop-button.png',
+##                    mouse_callbacks={
+##                                        'Button1': lambda: qtile.cmd_spawn('mpvc -k'),
+##                                    },
+##                ),
+##song duration
+##                widget.GenPollText(
+##                    func=lambda: subprocess.check_output("/home/andrew/scripts/shell/mpvcduration").decode("utf-8"),
+##                    update_interval=0.5,
+##                ),
+#                widget.TaskList(
+#                    mouse_callbacks={'Button2': lambda: qtile.cmd_spawn('wmctrl -c :ACTIVE:')},
+#                    txt_floating='',
+#                    txt_minimized='',
+#                    borderwidth=0,
+#                    spacing=10,
+#                    margin=-3,
+#                ),
+##                widget.WindowName(
+##                    mouse_callbacks={
+##                                        'Button1': lambda: qtile.lazy.spawn.toggle_minimize(),
+##                                        'Button2': lambda: qtile.cmd_spawn('wmctrl -c :ACTIVE:')
+##                                    },
+##                    txt_floating=' ',
+##                ),
+#                widget.TextBox(text=' '),
+#                widget.TextBox(
+#                    font='FontAwesome 5 Free Solid',
+#                    text='',
+#                    foreground='#23fd00',
+#                ),
+#                widget.Memory( #ram
+#                    format = '{MemPercent:.0f}% ',
+#                    foreground='#23fd00',
+#                ),
+#                widget.TextBox(
+#                    font='FontAwesome 5 Free Solid',
+#                    text='',
+#                    foreground='#fffd00',
+#                ),
+#                widget.Memory( #swp
+#                    format = '{SwapPercent:.0f}% ',
+#                    foreground='#fffd00',
+#                ),
+#                widget.TextBox(
+#                    font='FontAwesome 5 Free Solid',
+#                    text='',
+#                    foreground='#0dcdcd',
+#                ),
+#                widget.CPU(
+#                    format='{load_percent}% ',
+#                    foreground='#0dcdcd',
+#                ),
+#                widget.TextBox(
+#                    font='FontAwesome 5 Free Solid',
+#                    text='',
+#                    foreground='#f76806',
+#                ),
+#                widget.ThermalSensor(
+#                    foreground='#f76806',
+#                ),
+#                widget.TextBox(
+#                    font='FontAwesome 5 Free Solid',
+#                    text=' ',
+#                    foreground='#fd28ff',
+#                    mouse_callbacks={'Button3': lambda: qtile.cmd_spawn('pavucontrol'),
+#                                    'Button2': lambda: qtile.cmd_spawn('wmctrl -c :ACTIVE:')                     
+#                                    },
+#                ),
+#                widget.PulseVolume(
+#                    update_interval=0.1,
+#                    foreground='#fd28ff',
+#                    step=5,
+#                    mouse_callbacks={'Button3': lambda: qtile.cmd_spawn('pavucontrol'),
+#                                    'Button2': lambda: qtile.cmd_spawn('wmctrl -c :ACTIVE:')                     
+#                                    },
+#                ),
+#                widget.Clock( #day of the week
+#                    format=' %A ',
+#                ),
+#                widget.Clock( #number of the week
+#                    format='Week %W ',
+#                ),
+#                widget.Clock( #date
+#                    format='%Y/%m/%d',
+#                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('gsimplecal'),
+#                                       'Button2': lambda: qtile.cmd_spawn('wmctrl -c :ACTIVE:')                     
+#                    },
+#                ),
+#                widget.Clock( #time in hours, seconds, mins, 24h format
+#                    format=' %T',
+#                ),
+#                widget.Systray(
+#                    icon_size=22
+#                ),
+#                widget.Spacer(
+#                    length=10
+#                ),
+#            ],
+#            25,
+#            margin=8
+#        ),
     ),
 ]
 # Drag floating layouts.

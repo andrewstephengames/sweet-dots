@@ -35,3 +35,4 @@ alias mp720='mpv --force-seekable=yes --ytdl-format="bestvideo[ext=mp4][height<=
 alias mp480='mpv --force-seekable=yes --ytdl-format="bestvideo[ext=mp4][height<=?480]+bestaudio[ext=m4a]"'
 alias mpvtty='mpv --force-seekable=yes --no-audio-display'
 alias temp='inxi -s'
+alias tmpvar='XDG_SESSION_TYPE=wayland dbus-run-session startplasma-wayland'

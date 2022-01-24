@@ -90,9 +90,10 @@ exec xrdb /home/andrew/.Xdefaults
 #exec adb connect 192.168.0.178
 #exec waydroid session start
 workspace 1 
-exec MOZ_ENABLE_WAYLAND=1 MOZ_DBUS_REMOTE=1 waterfox-g4
+exec MOZ_ENABLE_WAYLAND=1 waterfox-g4
+#exec waterfox-g4
 workspace 2 
-exec thunar
+exec dolphin
 workspace 3 
 exec alacritty
 workspace 4 
@@ -100,8 +101,9 @@ exec cool-retro-term -e $HOME/scripts/mus
 workspace 5
 exec newsflash
 exec pavucontrol
+exec dolphin kdeconnect://a2f66128170a1390/
 workspace 6
-exec multimc
+exec $HOME/scripts/multimcmesa
 workspace 7
 exec lximage-qt $HOME/Documents/timetable-11a-darkmode.png
 workspace 8
@@ -269,7 +271,9 @@ seat * hide_cursor when-typing enable
 #
 # User binds:
 #
-    bindsym $mod+w exec MOZ_ENABLE_WAYLAND=1 MOZ_DBUS_REMOTE=1 waterfox-g4
+#    bindsym $mod+w exec MOZ_DBUS_REMOTE=1 waterfox-g4
+#    bindsym $mod+w exec waterfox-g4
+    bindsym $mod+w exec MOZ_ENABLE_WAYLAND=1 waterfox-g4
     bindsym $mod+Space exec env RUST_BACKTRACE=1 \
     #swayr switch-window >> tmpswayr.log 2>&1
     bindsym $mod+s exec grim - | wl-copy && notify-send "Screenshot copied to clipboard!"
@@ -279,7 +283,7 @@ seat * hide_cursor when-typing enable
     bindsym Page_Up exec pamixer -i 5
     bindsym Page_Down exec pamixer -d 5
     bindsym Pause exec pamixer -t
-    bindsym Control+Shift+tab exec MOZ_ENABLE_WAYLAND=1 MOZ_DBUS_REMOTE=1 waterfox-g4 --new-tab https://www.classroom.google.com/u/1/h/
+    bindsym Control+Shift+tab exec chromium https://www.classroom.google.com/u/1/h/
 #    bindsym $mod+e exec emote
     bindsym $mod+e exec rofi -show emoji -modi emoji
     bindsym Control+Shift+z exec mpvc prev
@@ -306,6 +310,7 @@ set $gnome-schema org.gnome.desktop.interface
 exec_always {
     gsettings set $gnome-schema gtk-theme 'Arc-BLACKEST'
     gsettings set $gnome-schema icon-theme 'candy-icons'
+    gsettings set $gnome-schema cursor-theme 'Breeze_Snow'
     gsettings set $gnome-schema font-name 'Roboto 12'
 }
 

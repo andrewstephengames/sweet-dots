@@ -1,3 +1,4 @@
+set relativenumber
 set number
 set expandtab
 set softtabstop=4
