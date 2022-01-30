@@ -116,8 +116,9 @@ workspace 1
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in usrsharebackgroundssway)
-seat * hide_cursor 5000
+# Hide cursor after 5000ms
+#seat * hide_cursor 5000
+# Hide cursor when typing
 seat * hide_cursor when-typing enable
 #
 # Example configuration:
