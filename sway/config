@@ -26,8 +26,8 @@ set $term alacritty
 font pango:Monospace 0
 titlebar_border_thickness 0                                              
 titlebar_padding 0
-default_border none
-default_floating_border none
+default_border pixel
+default_floating_border pixel
 hide_edge_borders --i3 none
 
 # Defining defaults
@@ -98,20 +98,16 @@ workspace 3
 exec alacritty
 workspace 4 
 exec cool-retro-term -e $HOME/scripts/mus
-workspace 5
+workspace 6
 exec newsflash
 exec pavucontrol
 exec dolphin kdeconnect://a2f66128170a1390/
-workspace 6
-exec $HOME/scripts/multimcmesa
 workspace 7
-exec lximage-qt $HOME/Documents/timetable-11a-darkmode.png
+exec lximage-qt $HOME/Documents/timetable-darkmode.png
 workspace 8
 exec transmission-gtk
-#exec sleep 10
-#workspace 5
-#exec waydroid show-full-ui
-workspace 1
+workspace 5
+exec lutris
 #exec emote
 
 ### Output configuration
