@@ -10,7 +10,7 @@ Global {
   height=40
   transparent=1
   tintcolor=#000000
-  alpha=255
+  alpha=209
   setdocktype=1
   setpartialstrut=1
   usefontcolor=1
@@ -43,7 +43,7 @@ Plugin {
 Plugin {
   type=space
   Config {
-    Size=10
+    Size=12
   }
 }
 Plugin {
@@ -54,17 +54,49 @@ Plugin {
 Plugin {
   type=space
   Config {
-    Size=5
+    Size=10
   }
 }
 Plugin {
   type=dclock
   Config {
-    ClockFmt=%H %n %M
+    ClockFmt=%H
     TooltipFmt=%A %x
-    BoldFont=1
+    BoldFont=0
     IconOnly=0
-    CenterText=1
+    CenterText=0
+  }
+}
+Plugin {
+  type=dclock
+  Config {
+    ClockFmt=%M
+    TooltipFmt=%A %x
+    BoldFont=0
+    IconOnly=0
+    CenterText=0
+  }
+}
+Plugin {
+  type=space
+  Config {
+    Size=12
+  }
+}
+Plugin {
+  type=dclock
+  Config {
+    ClockFmt=w%W
+    TooltipFmt=%A %x
+    BoldFont=0
+    IconOnly=0
+    CenterText=0
+  }
+}
+Plugin {
+  type=space
+  Config {
+    Size=12
   }
 }
 Plugin {

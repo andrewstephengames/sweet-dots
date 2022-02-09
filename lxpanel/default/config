@@ -1,2 +1,2 @@
 [Command]
-Logout=pkill openbox
+Logout=pkill X
