@@ -100,19 +100,21 @@ keys = [
         desc="Move mouse out of your way"),
     Key(["control", "shift"], "Tab", lazy.spawn("chromium --new-tab https://classroom.google.com/u/1/"),
         desc="Launch Google Classroom"),
-    Key([mod], "t", lazy.spawn("scripts/shell/autompv.sh"),
+    Key([mod], "t", lazy.spawn("scripts/autompv.sh"),
         desc="Launch mpv with most recent clipboard entry"),
-    Key(["control", "shift"], "k", lazy.spawn("scripts/shell/kdeconnect-qtile.sh"),
+    Key(["control", "shift"], "k", lazy.spawn("scripts/kdeconnect-qtile.sh"),
         desc="Launch host filesystem with a keybinding"),
     Key([mod], "w", lazy.spawn("waterfox-g4"),
         desc="Launch Firefox"),
-    Key([mod], "f", lazy.spawn("dolphin"),
+    Key([mod, "shift"], "w", lazy.spawn("scripts/randbg"),
+        desc="Randomize desktop background"),
+    Key([mod], "f", lazy.spawn("pcmanfm"),
         desc="Launch PCManFM"),
-    Key([mod], "m", lazy.spawn("scripts/shell/mcpe"),
-        desc="Launch MCPE"),
+#    Key([mod], "m", lazy.spawn("scripts/mcpe"),
+#        desc="Launch MCPE"),
     Key([mod], "o", lazy.window.toggle_minimize(),
         desc="Toggle minimize *window"),
-    Key([mod], "x", lazy.spawn("scripts/shell/cpu"),
+    Key([mod], "x", lazy.spawn("scripts/cpu"),
         desc="Send notification with top 5 most intensive processes"),
     Key(["control", "shift"], "space", lazy.spawn("mpvc -p"),
         desc="Pause mpv music"),
@@ -124,19 +126,19 @@ keys = [
         desc="Show most recent notification in history"),
     Key([mod, "shift"], "n", lazy.spawn("dunstctl close-all"), 
         desc="Close notifications on the screen"),
-    Key([mod], "c", lazy.spawn("lxterminal -e calc"),
+    Key([mod], "c", lazy.spawn("xterm -e calc"),
         desc="Launch calc"),
 ]
 
-group_names = [("", {'layout': 'max'}),
-               ("", {'layout': 'max', 'matches':[Match(wm_class=["dolphin"])]}),
-               ("", {'layout': 'max'}),
-               ("", {'layout': 'tile', 'matches':[Match(wm_class=["deadbeef"])]}),
-               ("", {'layout': 'columns', 'matches':[Match(wm_class=["fsearch"])]}),
-               ("", {'layout': 'max', 'matches':[Match(wm_class=["multimc", "Minecraft Linux Launcher UI"])]}),
-               ("", {'layout': 'columns'}),
-               ("", {'layout': 'columns'}),
-               ("", {'layout': 'columns'})]
+group_names = [("1", {'layout': 'max', 'matches':[Match(wm_class=["waterfox-g4"])]}),
+               ("2", {'layout': 'columns', 'matches':[Match(wm_class=["dolphin", "pcmanfm"])]}),
+               ("3", {'layout': 'columns', 'matches':[Match(wm_class=["lxterminal"])]}),
+               ("4", {'layout': 'max', 'matches':[Match(wm_class=["deadbeef", "qterminal"])]}),
+               ("5", {'layout': 'columns', 'matches':[Match(wm_class=["lutris"])]}),
+               ("6", {'layout': 'columns', 'matches':[Match(wm_class=["newsflash", "pavucontrol"])]}),
+               ("7", {'layout': 'columns', 'matches':[Match(wm_class=["gpicview"])]}),
+               ("8", {'layout': 'columns', 'matches':[Match(wm_class=["transmission-gtk"])]}),
+               ("9", {'layout': 'columns'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
@@ -340,17 +342,17 @@ screens = [
 ]
 # Drag floating layouts.
 mouse = [
-    Drag([alt], "Button1", lazy.window.set_position_floating(),
+    Drag([mod], "Button1", lazy.window.set_position_floating(),
          start=lazy.window.get_position()),
-    Drag([alt], "Button3", lazy.window.set_size_floating(),
+    Drag([mod], "Button3", lazy.window.set_size_floating(),
          start=lazy.window.get_size()),
-    Click([alt], "Button2", lazy.window.bring_to_front()),
+    Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 main = None  # WARNING: this is deprecated and will be removed soon
-follow_mouse_focus = False
+follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(float_rules=[
@@ -363,7 +365,9 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='leafpad'),
     Match(wm_class='copyq'),
     Match(wm_class='opengl'),
-    Match(wm_class='lxterminal'),
+    Match(wm_class='xterm'),
+    Match(wm_class='xfce4-panel'),
+    Match(wm_class='wrapper-2.0'),
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
 ],
