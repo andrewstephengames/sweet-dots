@@ -28,7 +28,7 @@ titlebar_border_thickness 0
 titlebar_padding 0
 default_border pixel
 default_floating_border pixel
-hide_edge_borders --i3 none
+hide_edge_borders --i3 smart_no_gaps
 
 # Defining defaults
 
@@ -81,6 +81,7 @@ exec_always --no-startup-id autotiling-rs
 # Autostart
 exec gammastep
 exec dunst
+exec copyq
 exec /usr/lib/kdeconnectd -platform offscreen
 exec sh $HOME/scripts/dotsync
 exec sh $HOME/scripts/pkgmaintain
@@ -296,7 +297,7 @@ seat * hide_cursor when-typing enable
     bindsym $mod+b exec dunstctl set-paused true && zenity --text-info --filename=$HOME.configswaynotify --width=300 --height=130 
     bindsym $mod+Shift+b exec dunstctl set-paused false && notify-send "Do not disturb disabled."
     bindsym $mod+Shift+w output * bg `ls $HOME/wallpapers/*.jpg | sort -R | head -n1` fill
-    bindsym Alt+c exec copyq --start-server show
+    bindsym Alt+c exec copyq show
 
 #
 # Gtk workaround
