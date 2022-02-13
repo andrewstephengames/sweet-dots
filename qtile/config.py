@@ -130,10 +130,10 @@ keys = [
         desc="Launch calc"),
 ]
 
-group_names = [("1", {'layout': 'max', 'matches':[Match(wm_class=["waterfox-g4"])]}),
+group_names = [("1", {'layout': 'max', 'matches':[Match(wm_class=["Waterfox"])]}),
                ("2", {'layout': 'columns', 'matches':[Match(wm_class=["dolphin", "pcmanfm"])]}),
-               ("3", {'layout': 'columns', 'matches':[Match(wm_class=["lxterminal"])]}),
-               ("4", {'layout': 'max', 'matches':[Match(wm_class=["deadbeef", "qterminal"])]}),
+               ("3", {'layout': 'columns', 'matches':[Match(wm_class=["qterminal"])]}),
+               ("4", {'layout': 'columns', 'matches':[Match(wm_class=["deadbeef", "lxterminal"])]}),
                ("5", {'layout': 'columns', 'matches':[Match(wm_class=["lutris"])]}),
                ("6", {'layout': 'columns', 'matches':[Match(wm_class=["newsflash", "pavucontrol"])]}),
                ("7", {'layout': 'columns', 'matches':[Match(wm_class=["gpicview"])]}),
