@@ -48,4 +48,4 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-XDG_SESSION_TYPE=wayland dbus-run-session startplasma-wayland
+exec dwm

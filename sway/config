@@ -33,6 +33,8 @@ hide_edge_borders --i3 smart_no_gaps
 # Defining defaults
 
 set $menu wofi --show drun -I -W 20% -H 25% --gtk-dark
+#wofi --show drun -I -W 20% -H 25% --gtk-dark
+#set $menu krunner
 
 # fix long waiting time to open certain Gtk+3 programs
 exec systemctl --user import-environment
@@ -43,6 +45,8 @@ for_window [app_id="lxterminal"] floating enable
 for_window [app_id="featherpad"] floating enable
 for_window [app_id="zenity"] floating enable
 for_window [app_id="copyq"] floating enable
+for_window [app_id="org.kde.plasma.emojier"] floating enable
+for_window [app_id="null"] floating enable
 #remove titlebar for tabbed layout
 #for_window [app_id="dolphin"] floating enable
 #                border  bg      text    child_brder
@@ -51,6 +55,10 @@ client.unfocused #000000 #000000 #ffffff  #000000
 client.focused_inactive #000000 #000000 #ffffff  #000000
 client.urgent #000000 #000000 #ffffff  #000000
 exec_always --no-startup-id autotiling-rs
+
+# Desktop exceptions
+
+assign [app_id="lutris"] workspace 5
 
 # Swaynagmode
 
@@ -86,37 +94,34 @@ exec /usr/lib/kdeconnectd -platform offscreen
 exec sh $HOME/scripts/dotsync
 exec sh $HOME/scripts/pkgmaintain
 #exec sh $HOME/scripts/shell/randbg
-exec xrdb /home/andrew/.Xdefaults
+exec xrdb $HOME/.Xdefaults
 #exec ydotoold
 #exec adb connect 192.168.0.178
 #exec waydroid session start
 workspace 1 
 exec MOZ_ENABLE_WAYLAND=1 waterfox-g4
-#exec waterfox-g4
 workspace 2 
 exec dolphin
 workspace 3 
 exec alacritty
 workspace 4 
-exec cool-retro-term -e $HOME/scripts/mus
-workspace 6
-exec newsflash
-exec pavucontrol
-exec dolphin kdeconnect://a2f66128170a1390/
-workspace 7
-exec lximage-qt $HOME/Documents/timetable-darkmode.png
-workspace 8
-exec transmission-gtk
+exec alacritty -e $HOME/scripts/mus
 workspace 5
 exec lutris
-#exec emote
+workspace 6
+exec pavucontrol
+workspace 7
+exec xrdb $HOME/.Xdefaults && nsxiv -s f -f -b $HOME/Documents/timetable-darkmode.png
+workspace 8
+exec transmission-gtk
+workspace 1
 
 ### Output configuration
 #
 # Hide cursor after 5000ms
 #seat * hide_cursor 5000
 # Hide cursor when typing
-seat * hide_cursor when-typing enable
+#seat * hide_cursor when-typing enable
 #
 # Example configuration:
 #
@@ -278,12 +283,17 @@ seat * hide_cursor when-typing enable
     bindsym $mod+Shift+s exec grim /home/andrew/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Screenshot saved!"
     bindsym $mod+g exec grim -g "$(slurp)" /tmp/Screenshot_$(date +%Y%m%d_%H%M%S).png && wl-copy < /tmp/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Selection copied to clipboard!"
     bindsym $mod+Shift+g exec grim -g "$(slurp)" /home/andrew/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Selection saved!"
-    bindsym Page_Up exec pamixer -i 5
-    bindsym Page_Down exec pamixer -d 5
-    bindsym Pause exec pamixer -t
+    #grim - | wl-copy && notify-send "Screenshot copied to clipboard!"
+    #grim /home/andrew/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Screenshot saved!"
+    #grim -g "$(slurp)" /tmp/Screenshot_$(date +%Y%m%d_%H%M%S).png && wl-copy < /tmp/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Selection copied to clipboard!"
+    #grim -g "$(slurp)" /home/andrew/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Selection saved!"
+    bindsym Page_Up exec pamixer --set-limit 200 --allow-boost -i 5
+    bindsym Page_Down exec pamixer --set-limit 200 --allow-boost -d 5
+    bindsym Pause exec pamixer --set-limit 200 --allow-boost -t
     bindsym Control+Shift+tab exec chromium https://www.classroom.google.com/u/1/h/
 #    bindsym $mod+e exec emote
     bindsym $mod+e exec rofi -show emoji -modi emoji
+#    bindsym $mod+e exec QT_QPA_PLATFORMTHEME=qt5ct ibus-ui-emojier-plasma
     bindsym Control+Shift+z exec mpvc prev
     bindsym Control+Shift+x exec mpvc next
     bindsym Control+Shift+space exec mpvc -p
@@ -292,7 +302,9 @@ seat * hide_cursor when-typing enable
     bindsym Control+Shift+g ydotool mousemove --absolute -x 0 -y 0
     bindsym $mod+p exec sh $HOME/scripts/shell/cpu
     bindsym $mod+c exec lxterminal -e calc
+    bindsym $mod+x exec lxterminal -e tty-clock -c
     bindsym $mod+o output VGA-1 mode --custom 1280x720@75hz
+    bindsym $mod+F9 output VGA-1 mode --custom 800x600@75hz
     bindsym $mod+Shift+o output VGA-1 resolution 1920x1080@60hz
     bindsym $mod+b exec dunstctl set-paused true && zenity --text-info --filename=$HOME.configswaynotify --width=300 --height=130 
     bindsym $mod+Shift+b exec dunstctl set-paused false && notify-send "Do not disturb disabled."
@@ -308,8 +320,8 @@ set $gnome-schema org.gnome.desktop.interface
 exec_always {
     gsettings set $gnome-schema gtk-theme 'Arc-BLACKEST'
     gsettings set $gnome-schema icon-theme 'candy-icons'
-    gsettings set $gnome-schema cursor-theme 'Breeze_Snow'
-    gsettings set $gnome-schema font-name 'Roboto 12'
+    gsettings set $gnome-schema cursor-theme 'elementary'
+    gsettings set $gnome-schema font-name 'Inter 12'
 }
 
 

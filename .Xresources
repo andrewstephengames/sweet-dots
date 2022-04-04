@@ -14,7 +14,7 @@ UXTerm*faceName:xft:Source Code Pro:size=18, \
                 xft:Noto Color Emoji:size=18, \
                 xft:Font Awesome 5 Free:size=18, \
                 xft:Monospace:size=18
-Sxiv.font: Inter:size=20
+#Nsxiv.font: Inter:size=20
 Dmenu.font: Inter:size=20
 *.foreground:   #ffffff
 *.background:   #000000

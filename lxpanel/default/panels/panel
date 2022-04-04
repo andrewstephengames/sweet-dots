@@ -19,7 +19,8 @@ Global {
   fontsize=10
   background=0
   backgroundfile=/usr/share/lxpanel/images/background.png
-  align=left
+  align=center
+  autohide=0
 }
 Plugin {
   type=menu
