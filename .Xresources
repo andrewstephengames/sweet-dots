@@ -6,16 +6,16 @@
 ! Last Modified: 6 Sep 2014
 ! -----------------------------------------------------------------------------
 Xcursor-theme: default
-XTerm*faceName: xft:Source Code Pro:size=18, \
+XTerm*faceName: xft:Roboto Mono:size=18, \
                 xft:Noto Color Emoji:size=18, \
                 xft:Font Awesome 5 Free:size=18, \
                 xft:Monospace:style:size=18
-UXTerm*faceName:xft:Source Code Pro:size=18, \
+UXTerm*faceName:xft:Roboto Mono:size=18, \
                 xft:Noto Color Emoji:size=18, \
                 xft:Font Awesome 5 Free:size=18, \
                 xft:Monospace:size=18
-#Nsxiv.font: Inter:size=20
-Dmenu.font: Inter:size=20
+Nsxiv.font: Roboto:size=20
+Dmenu.font: Roboto:size=20
 *.foreground:   #ffffff
 *.background:   #000000
 *.cursorColor:  #ffffff

@@ -37,7 +37,7 @@ set $menu wofi --show drun -I -W 20% -H 25% --gtk-dark
 #set $menu krunner
 
 # fix long waiting time to open certain Gtk+3 programs
-exec systemctl --user import-environment
+#exec systemctl --user import-environment
 #exec env RUST_BACKTRACE=1 swayrd > tmpswayrd.log 2>&1
 
 # Floating exceptions
@@ -89,10 +89,10 @@ assign [app_id="lutris"] workspace 5
 # Autostart
 exec gammastep
 exec dunst
-exec copyq
-exec /usr/lib/kdeconnectd -platform offscreen
 exec sh $HOME/scripts/dotsync
 exec sh $HOME/scripts/pkgmaintain
+exec sh $HOME/scripts/pipewire-start
+exec /usr/local/bin/mconnect -d
 #exec sh $HOME/scripts/shell/randbg
 exec xrdb $HOME/.Xdefaults
 #exec ydotoold
@@ -101,13 +101,13 @@ exec xrdb $HOME/.Xdefaults
 workspace 1 
 exec MOZ_ENABLE_WAYLAND=1 waterfox-g4
 workspace 2 
-exec dolphin
+exec pcmanfm
 workspace 3 
 exec alacritty
 workspace 4 
 exec alacritty -e $HOME/scripts/mus
 workspace 5
-exec lutris
+exec ultimmc
 workspace 6
 exec pavucontrol
 workspace 7
@@ -280,9 +280,9 @@ workspace 1
     bindsym $mod+Space exec env RUST_BACKTRACE=1 \
     #swayr switch-window >> tmpswayr.log 2>&1
     bindsym $mod+s exec grim - | wl-copy && notify-send "Screenshot copied to clipboard!"
-    bindsym $mod+Shift+s exec grim /home/andrew/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Screenshot saved!"
+    bindsym $mod+Shift+s exec grim "/home/andrew/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png" && notify-send "Screenshot saved as /home/andrew/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png!"
     bindsym $mod+g exec grim -g "$(slurp)" /tmp/Screenshot_$(date +%Y%m%d_%H%M%S).png && wl-copy < /tmp/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Selection copied to clipboard!"
-    bindsym $mod+Shift+g exec grim -g "$(slurp)" /home/andrew/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Selection saved!"
+    bindsym $mod+Shift+g exec grim -g "$(slurp)" /home/andrew/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Selection saved as /home/andrew/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png!"
     #grim - | wl-copy && notify-send "Screenshot copied to clipboard!"
     #grim /home/andrew/Screenshots/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Screenshot saved!"
     #grim -g "$(slurp)" /tmp/Screenshot_$(date +%Y%m%d_%H%M%S).png && wl-copy < /tmp/Screenshot_$(date +%Y%m%d_%H%M%S).png && notify-send "Selection copied to clipboard!"
@@ -319,9 +319,9 @@ set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
     gsettings set $gnome-schema gtk-theme 'Arc-BLACKEST'
-    gsettings set $gnome-schema icon-theme 'candy-icons'
-    gsettings set $gnome-schema cursor-theme 'elementary'
-    gsettings set $gnome-schema font-name 'Inter 12'
+    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
+    gsettings set $gnome-schema cursor-theme 'Adwaita'
+    gsettings set $gnome-schema font-name 'Roboto 12'
 }
 
 
