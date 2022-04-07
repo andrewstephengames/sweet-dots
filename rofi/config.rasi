@@ -1,7 +1,7 @@
 configuration {
 	modi: "drun,emoji,run";
 /*	columns: 1;*/
-	font: "Inter 15";
+	font: "Roboto 15";
 /*	bw: 1;*/
 /*	location: 0;*/
 /*	padding: 5;*/

@@ -7,11 +7,11 @@
 ! -----------------------------------------------------------------------------
 Xcursor-theme: default
 XTerm*faceName: xft:Roboto Mono:size=18, \
-                xft:Noto Color Emoji:size=18, \
+                xft:Joypixels:size=18, \
                 xft:Font Awesome 5 Free:size=18, \
                 xft:Monospace:style:size=18
 UXTerm*faceName:xft:Roboto Mono:size=18, \
-                xft:Noto Color Emoji:size=18, \
+                xft:Joypixels:size=18, \
                 xft:Font Awesome 5 Free:size=18, \
                 xft:Monospace:size=18
 Nsxiv.font: Roboto:size=20
