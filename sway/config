@@ -48,6 +48,8 @@ for_window [app_id="copyq"] floating enable
 for_window [app_id="org.kde.plasma.emojier"] floating enable
 for_window [app_id="null"] floating enable
 for_window [app_id="org.kde.kdenlive"] floating enable
+for_window [class="Unity"] floating enable
+
 #remove titlebar for tabbed layout
 #for_window [app_id="dolphin"] floating enable
 #                border  bg      text    child_brder
@@ -88,6 +90,7 @@ assign [app_id="lutris"] workspace 5
 # alttab
 
 # Autostart
+exec /usr/local/bin/mconnect -d
 exec gammastep
 exec dunst
 exec gnome-keyring-daemon -d
@@ -95,7 +98,6 @@ exec sh $HOME/scripts/dotsync
 exec sh $HOME/scripts/pkgmaintain
 exec sh $HOME/scripts/pipewire-start
 exec sh $HOME/scripts/mkexec
-exec /usr/local/bin/mconnect -d
 exec xrdb $HOME/.Xdefaults
 workspace 1 
 exec MOZ_ENABLE_WAYLAND=1 waterfox-g4
@@ -316,12 +318,12 @@ workspace 1
 
 set $gnome-schema org.gnome.desktop.interface
 
-exec_always {
-    gsettings set $gnome-schema gtk-theme 'Arc-BLACKEST'
-    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
-    gsettings set $gnome-schema cursor-theme 'Adwaita'
-    gsettings set $gnome-schema font-name 'Roboto 12'
-}
+#exec_always {
+#    gsettings set $gnome-schema gtk-theme 'Arc-BLACKEST'
+#    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
+#    gsettings set $gnome-schema cursor-theme 'Adwaita'
+#    gsettings set $gnome-schema font-name 'Roboto 12'
+#}
 
 
 #
