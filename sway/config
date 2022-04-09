@@ -43,6 +43,7 @@ set $menu wofi --show drun -I -W 20% -H 25% --gtk-dark
 # Floating exceptions
 for_window [app_id="lxterminal"] floating enable
 for_window [app_id="featherpad"] floating enable
+for_window [class="Leafpad"] floating enable
 for_window [app_id="zenity"] floating enable
 for_window [app_id="copyq"] floating enable
 for_window [app_id="org.kde.plasma.emojier"] floating enable
