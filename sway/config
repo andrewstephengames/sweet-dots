@@ -91,6 +91,7 @@ assign [app_id="lutris"] workspace 5
 # alttab
 
 # Autostart
+exec export USER_WM=sway
 exec /usr/local/bin/mconnect -d
 exec gammastep
 exec dunst

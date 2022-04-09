@@ -43,3 +43,6 @@ alias mp480='mpv --force-seekable=yes --ytdl-format="bestvideo[ext=mp4][height<=
 alias mpvtty='mpv --force-seekable=yes --no-audio-display'
 alias temp='inxi -s'
 alias tmpvar='XDG_SESSION_TYPE=wayland dbus-run-session startplasma-wayland'
+alias poweroff='loginctl poweroff'
+alias reboot='loginctl reboot'
+alias logout='pkill $(USER_WM)'
