@@ -49,6 +49,7 @@ for_window [app_id="copyq"] floating enable
 for_window [app_id="org.kde.plasma.emojier"] floating enable
 for_window [app_id="null"] floating enable
 for_window [app_id="org.kde.kdenlive"] floating enable
+for_window [app_id="mpv"] floating enable
 for_window [class="Unity"] floating enable
 
 #remove titlebar for tabbed layout
