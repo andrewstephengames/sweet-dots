@@ -1,4 +1,5 @@
 set relativenumber
+set showcmd
 set number
 set expandtab
 set softtabstop=5
