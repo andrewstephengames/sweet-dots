@@ -14,7 +14,7 @@ set -o vi
 source $HOME/.profile
 
 # If running under a tty, double the size of the text
-[[ $XDG_SESSION_TYPE = "tty" ]] && setfont -d
+#[[ $XDG_SESSION_TYPE = "tty" ]] && setfont -d
 
 # If the .trash/ directory doesn't exist, create it
 [[ -z ~/.trash ]] && mkdir ~/.trash
