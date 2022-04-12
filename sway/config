@@ -93,7 +93,7 @@ assign [app_id="lutris"] workspace 5
 
 # Autostart
 exec export USER_WM=sway
-exec /usr/local/bin/mconnect -d
+exec mconnect -d
 exec gammastep
 exec dunst
 exec gnome-keyring-daemon -d
