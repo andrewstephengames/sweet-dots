@@ -144,10 +144,10 @@ group_names = [("", {'layout': 'max', 'matches':[Match(wm_class=["Waterfox"])
                ("", {'layout': 'columns', 'matches':[Match(wm_class=["pcmanfm"])]}),
                ("", {'layout': 'columns', 'matches':[Match(wm_class=["qterminal"])]}),
                ("", {'layout': 'columns', 'matches':[Match(wm_class=["deadbeef", "lxterminal"])]}),
-               ("", {'layout': 'columns', 'matches':[Match(wm_class=["fsearch"])]}),
+               ("", {'layout': 'columns', 'matches':[Match(wm_class=["fsearch"])]}),
                ("", {'layout': 'columns', 'matches':[Match(wm_class=["UltimMC", "Minecraft Linux Launcher UI"])]}),
                ("", {'layout': 'columns', 'matches':[Match(wm_class=["nsxiv"])]}),
-               ("", {'layout': 'columns'}),
+               ("", {'layout': 'columns', 'matches':[Match(wm_class=["pavucontrol"])]}),
                ("", {'layout': 'columns'})]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
@@ -299,6 +299,17 @@ screens = [
                     format='{load_percent}% ',
                     foreground='#0dcdcd',
                 ),
+                #gpu usage TODO
+                widget.TextBox(
+                    font='FontAwesome 5 Free Solid',
+                    text='',
+                    foreground='#17DC33',
+                ),
+                widget.GenPollText(
+                    update_interval=1,
+                    func=lambda: subprocess.check_output("scripts/nvidia-gpu-usage").decode("utf-8"),
+                    foreground='#17DC33',
+                ),
                 widget.TextBox(
                     font='FontAwesome 5 Free Solid',
                     text='',
@@ -309,7 +320,17 @@ screens = [
                 ),
                 widget.TextBox(
                     font='FontAwesome 5 Free Solid',
-                    text=' ',
+                    text='',
+                    foreground='#17DC33',
+                ),
+                widget.GenPollText(
+                    update_interval=1,
+                    func=lambda: subprocess.check_output("scripts/nvidia-temp").decode("utf-8"),
+                    foreground='#17DC33',
+                ),
+                widget.TextBox(
+                    font='FontAwesome 5 Free Solid',
+                    text='',
                     foreground='#fd28ff',
                     mouse_callbacks={'Button3': lambda: qtile.cmd_spawn('pavucontrol'),
                                     'Button2': lambda: qtile.cmd_spawn('wmctrl -c :ACTIVE:')                     
