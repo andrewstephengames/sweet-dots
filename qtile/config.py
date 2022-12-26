@@ -43,6 +43,8 @@ def autostart():
 mod = "mod4"
 alt = "mod1"
 terminal = "alacritty"
+browser = "HOME=${HOME}/.config/librewolf librewolf --profile /home/andrew/.config"
+defFont = 'Cantarell'
 
 keys = [
      Key([mod], "space", lazy.layout.next(),
@@ -75,7 +77,7 @@ keys = [
         desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "g", lazy.spawn("flameshot gui"), desc="Launch Flameshot"),
-    Key([mod, "shift"], "s", lazy.spawn("flameshot full -p /home/andrew/Screenshots"), desc="Save fullscreen screenshot"),
+    Key([mod, "shift"], "s", lazy.spawn("flameshot full -p /home/andrew/Pictures/Screenshots"), desc="Save fullscreen screenshot"),
     Key([mod], "s", lazy.spawn("flameshot full -c"), desc="Copy fullscreen screenshot to the clipboard"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
@@ -92,29 +94,30 @@ keys = [
         desc="Decrease Volume"),
     Key([], "Pause", lazy.spawn("pamixer -t"),
         desc="Mute Volume"),
-    Key(["control"], "Escape", lazy.spawn("xdotool mousemove 1904 1034 click 1 mousemove restore"),
-        desc="Hide Downloads in Brave"),
+    Key(["control"], "Escape", lazy.spawn("xdotool mousemove 1902 1062 click 1 mousemove restore"),
+        desc="Hide search field"),
     Key([mod], "Escape", lazy.spawn("xkill"),
         desc="Kill *window"),
     Key(["control", "shift"], "g", lazy.spawn("xdotool mousemove 0 0"),
         desc="Move mouse out of your way"),
-    Key(["control", "shift"], "Tab", lazy.spawn("chromium --new-tab https://classroom.google.com/u/1/"),
+    Key(["control", "shift"], "Tab", lazy.spawn(browser + " --new-tab https://classroom.google.com/u/1/"),
         desc="Launch Google Classroom"),
-    Key([mod], "t", lazy.spawn("scripts/autompv.sh"),
+    Key([mod], "t", lazy.spawn("git/scripts/autompv.sh"),
         desc="Launch mpv with most recent clipboard entry"),
-    Key(["control", "shift"], "k", lazy.spawn("scripts/kdeconnect-qtile.sh"),
+    Key(["control", "shift"], "k", lazy.spawn("git/scripts/kdeconnect-qtile.sh"),
         desc="Launch host filesystem with a keybinding"),
-    Key([mod], "w", lazy.spawn("waterfox-g4"),
-        desc="Launch Firefox"),
-    Key([mod, "shift"], "w", lazy.spawn("feh --bg-fill '$(ls /home/andrew/wallpapers/*.jpg | sort -R | head -n1 | sed 's|wallpapers/||')'"),
-        desc="Randomize desktop background"), # FIXME: dead keybind
+    #Key([mod], "w", lazy.spawn("feh --bg-fill $(ls /home/andrew/Pictures/wallpapers/*.jpg | sort -R | head -n1)"),
+    #    desc="Randomize desktop background"),
+    Key([mod], "w", lazy.spawn("git/scripts/randbg"),
+        desc="Randomize desktop background"),
 #    Key([mod], "f", lazy.spawn("pcmanfm"),
 #        desc="Launch PCManFM"),
 #    Key([mod], "m", lazy.spawn("scripts/mcpe"),
 #        desc="Launch MCPE"),
-    Key([mod], "o", lazy.window.toggle_minimize(),
+    Key([mod], "d", lazy.window.toggle_minimize(),
         desc="Toggle minimize *window"),
-    Key([mod], "x", lazy.spawn("scripts/cpu"),
+    Key([mod], "k", lazy.widget["KeyboardLayout"].next_keyboard(), desc="Next keyboard layout."),
+    Key([mod], "x", lazy.spawn("git/scripts/cpu"),
         desc="Send notification with top 5 most intensive processes"),
     Key(["control", "shift"], "space", lazy.spawn("mpvc -p"),
         desc="Pause mpv music"),
@@ -140,12 +143,12 @@ keys = [
 #               ("8", {'layout': 'columns', 'matches':[Match(wm_class=["transmission-gtk"])]}),
 #               ("9", {'layout': 'columns'})]
 
-group_names = [("", {'layout': 'max', 'matches':[Match(wm_class=["Waterfox"])]}),
+group_names = [("", {'layout': 'max', 'matches':[Match(wm_class=["librewolf-default"])]}),
                ("", {'layout': 'columns', 'matches':[Match(wm_class=["pcmanfm"])]}),
                ("", {'layout': 'columns', 'matches':[Match(wm_class=["qterminal"])]}),
                ("", {'layout': 'columns', 'matches':[Match(wm_class=["deadbeef", "lxterminal"])]}),
                ("", {'layout': 'columns', 'matches':[Match(wm_class=["fsearch"])]}),
-               ("", {'layout': 'columns', 'matches':[Match(wm_class=["UltimMC", "Minecraft Linux Launcher UI"])]}),
+               ("", {'layout': 'max', 'matches':[Match(wm_class=["UltimMC", "Minecraft Linux Launcher UI"])]}),
                ("", {'layout': 'columns', 'matches':[Match(wm_class=["nsxiv"])]}),
                ("", {'layout': 'columns', 'matches':[Match(wm_class=["pavucontrol"])]}),
                ("", {'layout': 'columns'})]
@@ -162,6 +165,12 @@ layout_theme = {
                 "border_focus": "#1688F0",
                 "border_normal": "#1D2330"
                 }
+max_theme = {
+                "border_width": 2,
+#                "margin": 8,
+                "border_focus": "#1D2330",
+                "border_normal": "#1D2330"
+                }
 floating_theme = {
                 "border_width": 2,
 #                "margin": 8,
@@ -172,7 +181,7 @@ floating_theme = {
 layouts = [
     layout.Columns(**layout_theme),
     # Try more layouts by unleashing below layouts.
-    layout.Max(**floating_theme),
+    layout.Max(**max_theme),
     # layout.Floating(),
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -187,7 +196,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='Roboto',
+    font=defFont,
     icon_size=20,
     fontsize=18,
     padding=3,
@@ -271,6 +280,39 @@ screens = [
 #                                    },
 #                    txt_floating=' ',
 #                ),
+#                widget.TextBox(text=' '),
+#                widget.TextBox(
+#                    font='Roboto',
+#                    text='🔋0',
+#                    foreground='#17DC33',
+#                ),
+#                widget.GenPollText(
+#                    update_interval=1,
+#                    func=lambda: subprocess.check_output("scripts/mconnect-battery -0").decode("utf-8"),
+#                    foreground='#17DC33',
+#                ),
+#                widget.TextBox(text=' '),
+#                widget.TextBox(
+#                    font='Roboto',
+#                    text='🔋1',
+#                    foreground='#17DC33',
+#                ),
+#                widget.GenPollText(
+#                    update_interval=1,
+#                    func=lambda: subprocess.check_output("scripts/mconnect-battery -1").decode("utf-8"),
+#                    foreground='#17DC33',
+#                ),
+#                widget.TextBox(text=' '),
+#                widget.TextBox(
+#                    font='Roboto',
+#                    text='🔋2',
+#                    foreground='#17DC33',
+#                ),
+#                widget.GenPollText(
+#                    update_interval=1,
+#                    func=lambda: subprocess.check_output("scripts/mconnect-battery -2").decode("utf-8"),
+#                    foreground='#17DC33',
+#                ),
                 widget.TextBox(text=' '),
                 widget.TextBox(
                     font='FontAwesome 5 Free Solid',
@@ -299,17 +341,6 @@ screens = [
                     format='{load_percent}% ',
                     foreground='#0dcdcd',
                 ),
-                #gpu usage TODO
-                widget.TextBox(
-                    font='FontAwesome 5 Free Solid',
-                    text='',
-                    foreground='#17DC33',
-                ),
-                widget.GenPollText(
-                    update_interval=1,
-                    func=lambda: subprocess.check_output("scripts/nvidia-gpu-usage").decode("utf-8"),
-                    foreground='#17DC33',
-                ),
                 widget.TextBox(
                     font='FontAwesome 5 Free Solid',
                     text='',
@@ -320,12 +351,22 @@ screens = [
                 ),
                 widget.TextBox(
                     font='FontAwesome 5 Free Solid',
+                    text='',
+                    foreground='#17DC33',
+                ),
+                widget.GenPollText(
+                    update_interval=1,
+                    func=lambda: subprocess.check_output("git/scripts/nvidia-gpu-usage").decode("utf-8"),
+                    foreground='#17DC33',
+                ),
+                widget.TextBox(
+                    font='FontAwesome 5 Free Solid',
                     text='',
                     foreground='#17DC33',
                 ),
                 widget.GenPollText(
                     update_interval=1,
-                    func=lambda: subprocess.check_output("scripts/nvidia-temp").decode("utf-8"),
+                    func=lambda: subprocess.check_output("git/scripts/nvidia-temp").decode("utf-8"),
                     foreground='#17DC33',
                 ),
                 widget.TextBox(
@@ -358,6 +399,9 @@ screens = [
                 ),
                 widget.Clock( #time in hours, seconds, mins, 24h format
                     format=' %T',
+                ),
+                widget.KeyboardLayout(
+                    configured_keyboards = ['us', 'ro std']
                 ),
                 widget.Systray(
                     icon_size=22
@@ -400,6 +444,9 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='xterm'),
     Match(wm_class='xfce4-panel'),
     Match(wm_class='wrapper-2.0'),
+    Match(wm_class='main'),
+    Match(wm_class='main.py'),
+    Match(wm_class='sun-awt-X11-XFramePeer'),
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
 ],

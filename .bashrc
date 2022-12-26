@@ -7,7 +7,7 @@
 #/_/   \_\_| |_|\__,_|_|  \___| \_/\_/  |____/ \__\___| .__/|_| |_|\___|_| |_|
 #                                                     |_|                     
 # Useful exports
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+#export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export EDITOR=vim
 export VISUAL=vim
 set -o vi

@@ -8,18 +8,27 @@ sh $HOME/scripts/pkgmaintain
 dunst &
 redshift &
 pulseaudio &
-unclutter --timeout 3 &
-#sh $HOME/scripts/randbg
-feh --bg-fill /home/andrew/wallpapers/zo7q0cdgb5h81.jpg
+#unclutter --timeout 3 &
+#feh --bg-fill wallpapers/0033.jpg &
+#nitrogen --restore &
+sh $HOME/git/scripts/randbg &
+#(cd $HOME/wallpapers/) &&
+#(wall=$(ls *.jpg | sort -R | head -n1)) &&
+#(notify-send "$(echo $wall)") &&
+#([[ $XDG_SESSION_TYPE = "x11" ]] && feh --bg-fill "$wall") &&
+#([[ $XDG_SESSION_TYPE = "wayland" ]] && swaybg -i "$wall" -m fill) &
+cd $HOME &
+/usr/lib/kdeconnectd &
+kdeconnect-indicator &
 flameshot &
+nextcloud &
 mpvc &
 pcmanfm &
-mconnect -d &
+#mconnect -d &
 #dolphin &
-waterfox-g4 &
+git/scripts/librewolf &
 qterminal &
-lxterminal -e $HOME/scripts/mus &
-fsearch &
+lxterminal -e $HOME/git/scripts/mus &
 #lutris &
 pavucontrol &
 nsxiv -s f -b $HOME/Documents/timetable-darkmode.png &
