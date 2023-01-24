@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-taskmanager" version="1.0">
+  <property name="window-width" type="int" value="919"/>
+  <property name="window-height" type="int" value="613"/>
+  <property name="interface" type="empty">
+    <property name="show-legend" type="bool" value="false"/>
+    <property name="show-filter" type="bool" value="false"/>
+  </property>
+  <property name="columns" type="empty">
+    <property name="column-vsz" type="bool" value="false"/>
+    <property name="sort-type" type="uint" value="1"/>
+    <property name="sort-id" type="uint" value="7"/>
+    <property name="column-uid" type="bool" value="true"/>
+    <property name="column-priority" type="bool" value="true"/>
+  </property>
+</channel>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="int" value="2"/>
+  <property name="panels" type="array">
+    <value type="int" value="1"/>
+    <property name="dark-mode" type="bool" value="true"/>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=6;x=0;y=0"/>
+      <property name="length" type="uint" value="100"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="icon-size" type="uint" value="16"/>
+      <property name="size" type="uint" value="40"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="1"/>
+        <value type="int" value="4"/>
+        <value type="int" value="2"/>
+        <value type="int" value="7"/>
+        <value type="int" value="10"/>
+        <value type="int" value="6"/>
+        <value type="int" value="8"/>
+        <value type="int" value="11"/>
+        <value type="int" value="5"/>
+        <value type="int" value="12"/>
+        <value type="int" value="3"/>
+      </property>
+      <property name="leave-opacity" type="uint" value="100"/>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-2" type="string" value="tasklist">
+      <property name="grouping" type="uint" value="0"/>
+      <property name="show-handle" type="bool" value="false"/>
+      <property name="middle-click" type="uint" value="1"/>
+      <property name="flat-buttons" type="bool" value="false"/>
+      <property name="show-labels" type="bool" value="true"/>
+    </property>
+    <property name="plugin-6" type="string" value="systray">
+      <property name="square-icons" type="bool" value="true"/>
+      <property name="known-items" type="array">
+        <value type="string" value="vlc"/>
+        <value type="string" value="chrome_status_icon_1"/>
+        <value type="string" value="Nextcloud"/>
+        <value type="string" value="Fcitx"/>
+        <value type="string" value="ArmCord1"/>
+        <value type="string" value="SimpleScreenRecorder"/>
+        <value type="string" value="steam"/>
+        <value type="string" value="flameshot"/>
+        <value type="string" value="KDE Connect Indicator"/>
+      </property>
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="thunar"/>
+        <value type="string" value="flameshot"/>
+        <value type="string" value="clipman"/>
+      </property>
+    </property>
+    <property name="plugin-10" type="string" value="notification-plugin"/>
+    <property name="plugin-11" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-12" type="string" value="clock">
+      <property name="tooltip-format" type="string" value="%A %d %B %Y"/>
+      <property name="digital-format" type="string" value="%a %_d %b, %R"/>
+      <property name="digital-time-format" type="string" value="%a %_d %b, %R"/>
+      <property name="digital-layout" type="uint" value="3"/>
+      <property name="digital-time-font" type="string" value="Inter 12"/>
+    </property>
+    <property name="plugin-4" type="string" value="pager">
+      <property name="rows" type="uint" value="1"/>
+      <property name="miniature-view" type="bool" value="false"/>
+      <property name="numbering" type="bool" value="false"/>
+    </property>
+    <property name="plugin-7" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="clipman" type="empty">
+      <property name="tweaks" type="empty">
+        <property name="never-confirm-history-clear" type="bool" value="true"/>
+      </property>
+    </property>
+    <property name="plugin-1" type="string" value="whiskermenu"/>
+    <property name="plugin-3" type="string" value="showdesktop"/>
+    <property name="plugin-5" type="string" value="xkb">
+      <property name="display-name" type="uint" value="0"/>
+      <property name="group-policy" type="uint" value="0"/>
+      <property name="display-scale" type="uint" value="90"/>
+      <property name="display-type" type="uint" value="0"/>
+    </property>
+    <property name="plugin-8" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="firefox.instance19646;firefox.instance24156;firefox.instance25083;firefox.instance2932;firefox.instance2993;firefox.instance3531;firefox.instance5806;firefox.instance6537;kdeconnect.mpris_13cc8939928249e8a0aebfba15e658bc;kdeconnect.mpris_1afc7c4ae5f24e249137fceda475e407;kdeconnect.mpris_234eb4938775421294f6d64ebed64adb;kdeconnect.mpris_31148508b1aa4adf9614dc0da366e2a6;kdeconnect.mpris_383739b8767c4fb493e3149b5b679516;kdeconnect.mpris_4ce4d410e828403785d09647f3537b89;kdeconnect.mpris_58607a1ecd284ed4baf2e77150004551;kdeconnect.mpris_6107465ea4b14085b239d43e79d8d6a8;kdeconnect.mpris_6f67afa9555f43c29dc8a77b2270044d;kdeconnect.mpris_6ff9e8e047304629a677b5c1d276b794;kdeconnect.mpris_736bd2071359456383fc7dbd07fd7d5e;kdeconnect.mpris_7ed7d273b3bb4cf1ab5ac2f8b8c6364e;kdeconnect.mpris_81704438a77e438293c09e7cd9b0364e;kdeconnect.mpris_85caffda322945ca8ae588681dab5558;kdeconnect.mpris_bbf7b64862414ea5ae1b7879e0ca6408;kdeconnect.mpris_da1a5b37270942c587c6cbcdf70b9e1a;kdeconnect.mpris_e3aa8abf27054159aa9846cd24aa0db8;kdeconnect.mpris_ede71f45091f4189ae53fcfef3911da4;vlc"/>
+    </property>
+  </property>
+</channel>

@@ -5,6 +5,7 @@ set expandtab
 set softtabstop=5
 set ignorecase
 set smartcase
+set ic
 syntax on
 map <C-S-y> "+y
 map <C-S-p> "+P

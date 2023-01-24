@@ -448,6 +448,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='main.py'),
     Match(wm_class='sun-awt-X11-XFramePeer'),
     Match(title='branchdialog'),  # gitk
+    Match(title='Execute File'),
     Match(title='pinentry'),  # GPG key password entry
 ],
     **floating_theme

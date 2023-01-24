@@ -13,6 +13,12 @@ export VISUAL=vim
 set -o vi
 source $HOME/.profile
 
+# Turn off screensaver
+
+xset -dpms
+xset -b
+xset s off
+
 # If running under a tty, double the size of the text
 #[[ $XDG_SESSION_TYPE = "tty" ]] && setfont -d
 
