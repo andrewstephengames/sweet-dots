@@ -32,9 +32,6 @@
       <property name="&lt;Alt&gt;&lt;Super&gt;s" type="empty"/>
     </property>
     <property name="custom" type="empty">
-      <property name="&lt;Alt&gt;F2" type="string" value="xfce4-appfinder --collapsed">
-        <property name="startup-notify" type="bool" value="true"/>
-      </property>
       <property name="&lt;Alt&gt;Print" type="string" value="xfce4-screenshooter -w"/>
       <property name="&lt;Super&gt;r" type="string" value="xfce4-appfinder -c">
         <property name="startup-notify" type="bool" value="true"/>
@@ -61,13 +58,16 @@
       <property name="&lt;Super&gt;s" type="string" value="flameshot full -c"/>
       <property name="Page_Up" type="string" value="pamixer -i 5"/>
       <property name="Page_Down" type="string" value="pamixer -d 5"/>
-      <property name="Pause" type="string" value="pamixer -d"/>
       <property name="&lt;Super&gt;q" type="string" value="wmctrl -c :ACTIVE:"/>
       <property name="&lt;Super&gt;KP_Page_Up" type="string" value="xfce4-display-settings --minimal"/>
       <property name="&lt;Super&gt;KP_Next" type="string" value="xfce4-display-settings --minimal"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;s" type="string" value="flameshot full -p /home/andrew/Pictures/Screenshots"/>
       <property name="&lt;Super&gt;Return" type="string" value="xfce4-terminal"/>
       <property name="&lt;Super&gt;w" type="string" value="sh ~/git/scripts/randbg"/>
+      <property name="&lt;Alt&gt;F12" type="string" value="xfce4-appfinder --collapsed">
+        <property name="startup-notify" type="bool" value="true"/>
+      </property>
+      <property name="Pause" type="string" value="pamixer -t"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
@@ -159,7 +159,6 @@
       <property name="&lt;Primary&gt;&lt;Alt&gt;Home" type="string" value="move_window_prev_workspace_key"/>
       <property name="&lt;Alt&gt;&lt;Shift&gt;Tab" type="string" value="cycle_reverse_windows_key"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Left" type="string" value="left_workspace_key"/>
-      <property name="&lt;Alt&gt;F12" type="string" value="above_key"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;&lt;Alt&gt;Up" type="string" value="move_window_up_key"/>
       <property name="&lt;Alt&gt;F8" type="string" value="resize_window_key"/>
       <property name="&lt;Super&gt;KP_End" type="string" value="tile_down_left_key"/>

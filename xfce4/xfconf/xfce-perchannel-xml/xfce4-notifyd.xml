@@ -6,8 +6,10 @@
       <value type="string" value="brave-browser"/>
       <value type="string" value="chromium-browser"/>
       <value type="string" value="com.nextcloud.desktopclient.nextcloud"/>
+      <value type="string" value="Firefox"/>
       <value type="string" value="flameshot"/>
       <value type="string" value="org.kde.kdeconnect.daemon"/>
+      <value type="string" value="org.qbittorrent.qBittorrent"/>
       <value type="string" value="Xfce volume control"/>
       <value type="string" value="Xfce4-notifyd settings"/>
       <value type="string" value="xfce4-settings-helper"/>
@@ -26,4 +28,5 @@
   <property name="log-max-size" type="uint" value="1000"/>
   <property name="expire-timeout" type="int" value="10"/>
   <property name="do-not-disturb" type="bool" value="false"/>
+  <property name="log-max-size-enabled" type="bool" value="true"/>
 </channel>
