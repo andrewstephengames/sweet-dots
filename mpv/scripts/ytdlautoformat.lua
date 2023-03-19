@@ -27,7 +27,7 @@ local StreamSource = Set {
 }
 
 -- Accepts: 240, 360, 480, 720, 1080, 1440, 2160
-local changedQuality = 1080
+local changedQuality = 2160
 
 -- Affects matched and non-matched domains
 local enableVP9 = false
