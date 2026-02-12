@@ -55,7 +55,7 @@ exec --no-startup-id copyq
 
 exec --no-startup-id sh $HOME/git/scripts/arandr.sh
 #exec --no-startup-id sh $HOME/git/scripts/randbg
-exec --no-startup-id HOME=$HOME/.config/feh feh --bg-fill ~/Pictures/wallpapers/0271.jpg
+exec --no-startup-id HOME=$HOME/.config/feh feh --bg-fill --auto-zoom ~/Pictures/wallpapers/0271.jpg
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
