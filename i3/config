@@ -53,7 +53,7 @@ exec --no-startup-id copyq
 
 #exec --no-startup-id redshift
 
-exec --no-startup-id sh $HOME/git/scripts/arandr.sh
+exec --no-startup-id sh $HOME/git/scripts/hp.sh
 #exec --no-startup-id sh $HOME/git/scripts/randbg
 exec --no-startup-id HOME=$HOME/.config/feh feh --bg-fill --auto-zoom ~/Pictures/wallpapers/0271.jpg
 
@@ -67,6 +67,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym Next exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym Prior exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym Pause exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+
+bindsym KP_Enter exec --no-startup-id sh $HOME/git/scripts/lg.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
